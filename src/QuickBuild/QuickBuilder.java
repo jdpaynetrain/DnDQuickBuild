@@ -1,0 +1,41 @@
+package QuickBuild;
+import java.util.*;
+
+public class QuickBuilder {
+    private static final Set<String> allClasses = new HashSet<>
+            (Arrays.asList("Barbarian", "Bard", "Cleric", "Druid", "Fighter",
+                    "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer",
+                    "Warlock", "Wizard"));
+    private static final Set<String> allRaces = new HashSet<>
+            (Arrays.asList("Hill Dwarf", "Mountain Dwarf", "High Elf",
+                    "Wood Elf", "Dark Elf", "Lightfoot Halfling",
+                    "Stout Halfling", "Human", "Dragonborn", "Forest Gnome",
+                    "Rock Gnome", "Half Elf", "Half Orc", "Tiefling"));
+
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        Character person = new Character();
+        
+        System.out.println("What race would you like to play? Options are: ");
+        System.out.println(allRaces);
+        String userRace = sc.nextLine();
+        while(!allRaces.contains(userRace)){
+            System.out.println("Race must be one of the following:");
+            System.out.println(allRaces);
+            userRace = sc.nextLine();
+        }
+
+        System.out.println("What class would you like to play? Options are: ");
+        System.out.println(allClasses);
+        String userClass = sc.nextLine();
+        while(!allClasses.contains(userClass)){
+            System.out.println("Class must be one of the following:");
+            System.out.println(allClasses);
+            userClass = sc.nextLine();
+        }
+
+        person.rollCharacter(userClass, userRace);
+        person.printStats();
+    }
+
+}
