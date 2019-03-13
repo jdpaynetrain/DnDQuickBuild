@@ -14,4 +14,43 @@ public class Monk implements Classes {
         scores.put("CHA", baseStats.get(2));
         return scores;
     }
+
+    public void classProfs(Set<String> profs){
+        profs.addAll(Arrays.asList("Light Armor", "All Simple Weapons"));
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Choose a skill to have proficiency in:");
+        System.out.println(skillProfs);
+        String userProf = sc.nextLine();
+        while(!skillProfs.contains(userProf) || profs.contains(userProf)){
+            if(profs.contains(userProf)){
+                System.out.println("You already have proficiency. Choose " +
+                        "another");
+                System.out.println(skillProfs);
+            }
+            else{
+                System.out.println("That is not an option. Choose another");
+                System.out.println(skillProfs);
+            }
+            userProf = sc.nextLine();
+        }
+        profs.add(userProf);
+
+        System.out.println("Choose another skill to have proficiency in:");
+        System.out.println(skillProfs);
+        userProf = sc.nextLine();
+        while(!skillProfs.contains(userProf) || profs.contains(userProf)){
+            if(profs.contains(userProf)){
+                System.out.println("You already have proficiency. Choose " +
+                        "another");
+                System.out.println(skillProfs);
+            }
+            else{
+                System.out.println("That is not an option. Choose another");
+                System.out.println(skillProfs);
+            }
+            userProf = sc.nextLine();
+        }
+        profs.add(userProf);
+    }
 }

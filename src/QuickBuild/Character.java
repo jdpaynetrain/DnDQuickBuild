@@ -90,6 +90,7 @@ public class Character {
         this.calcMods();
         this.knownLanguages = racial.racialLanguages();
         this.proficiencies = racial.racialProfs();
+        archetype.classProfs(proficiencies);
     }
 
 
@@ -108,7 +109,6 @@ public class Character {
             System.out.println(entry.getKey() + " -- " + entry.getValue() +
                                "(" + scoreMods.get(entry.getKey()) + ")");
         }
-
         System.out.println("Proficiencies are:");
         System.out.println(proficiencies);
         System.out.println("Known languages are:");

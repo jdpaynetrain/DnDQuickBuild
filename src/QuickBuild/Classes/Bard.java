@@ -14,4 +14,61 @@ public class Bard implements Classes {
         scores.put("CHA", baseStats.get(5));
         return scores;
     }
+
+    public void classProfs(Set<String> profs){
+        profs.addAll(Arrays.asList("Light Armor", "Simple Weapons",
+                "Hand Crossbows", "Longswords", "Rapiers", "Shortswords"));
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Choose a skill to have proficiency in:");
+        System.out.println(allSkills);
+        String userProf = sc.nextLine();
+        while(!allSkills.contains(userProf) || profs.contains(userProf)){
+            if(profs.contains(userProf)){
+                System.out.println("You already have proficiency. Choose " +
+                        "another");
+                System.out.println(allSkills);
+            }
+            else{
+                System.out.println("That is not an option. Choose another");
+                System.out.println(allSkills);
+            }
+            userProf = sc.nextLine();
+        }
+        profs.add(userProf);
+
+        System.out.println("Choose another skill to have proficiency in:");
+        System.out.println(allSkills);
+        userProf = sc.nextLine();
+        while(!allSkills.contains(userProf) || profs.contains(userProf)){
+            if(profs.contains(userProf)){
+                System.out.println("You already have proficiency. Choose " +
+                        "another");
+                System.out.println(allSkills);
+            }
+            else{
+                System.out.println("That is not an option. Choose another");
+                System.out.println(allSkills);
+            }
+            userProf = sc.nextLine();
+        }
+        profs.add(userProf);
+
+        System.out.println("Choose another skill to have proficiency in:");
+        System.out.println(allSkills);
+        userProf = sc.nextLine();
+        while(!allSkills.contains(userProf) || profs.contains(userProf)){
+            if(profs.contains(userProf)){
+                System.out.println("You already have proficiency. Choose " +
+                        "another");
+                System.out.println(allSkills);
+            }
+            else{
+                System.out.println("That is not an option. Choose another");
+                System.out.println(allSkills);
+            }
+            userProf = sc.nextLine();
+        }
+        profs.add(userProf);
+    }
 }
