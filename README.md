@@ -9,7 +9,6 @@
   
     1) Be able to create a higher level character.
     2) Implement Feats
-    
     3) When creating a higher level character roll health for each level
     
   If you have any suggestions for implementations let me know.
