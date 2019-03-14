@@ -2,6 +2,9 @@ package QuickBuild.Classes;
 import java.util.*;
 
 public class Monk implements Classes {
+    private static final Set<String> skillProfs = new HashSet<>
+            (Arrays.asList("Acrobatics", "Athletics", "History", "Insight",
+                    "Religion", "Stealth"));
     private Map<String, Integer> scores = new LinkedHashMap<>();
 
     public Map<String, Integer> applyModifiers(List<Integer> baseStats){
@@ -16,41 +19,24 @@ public class Monk implements Classes {
     }
 
     public void classProfs(Set<String> profs){
-        profs.addAll(Arrays.asList("Light Armor", "All Simple Weapons"));
+        profs.addAll(Arrays.asList("Simple Weapons", "Shortswords"));
         Scanner sc = new Scanner(System.in);
-
-        System.out.println("Choose a skill to have proficiency in:");
-        System.out.println(skillProfs);
-        String userProf = sc.nextLine();
-        while(!skillProfs.contains(userProf) || profs.contains(userProf)){
-            if(profs.contains(userProf)){
-                System.out.println("You already have proficiency. Choose " +
-                        "another");
-                System.out.println(skillProfs);
+        for(int i = 0; i < 2; i++) {
+            System.out.println("Choose a skill to have proficiency in:");
+            System.out.println(skillProfs);
+            String userProf = sc.nextLine();
+            while (!skillProfs.contains(userProf) || profs.contains(userProf)) {
+                if (profs.contains(userProf)) {
+                    System.out.println("You already have proficiency. Choose " +
+                            "another");
+                    System.out.println(skillProfs);
+                } else {
+                    System.out.println("That is not an option. Choose another");
+                    System.out.println(skillProfs);
+                }
+                userProf = sc.nextLine();
             }
-            else{
-                System.out.println("That is not an option. Choose another");
-                System.out.println(skillProfs);
-            }
-            userProf = sc.nextLine();
+            profs.add(userProf);
         }
-        profs.add(userProf);
-
-        System.out.println("Choose another skill to have proficiency in:");
-        System.out.println(skillProfs);
-        userProf = sc.nextLine();
-        while(!skillProfs.contains(userProf) || profs.contains(userProf)){
-            if(profs.contains(userProf)){
-                System.out.println("You already have proficiency. Choose " +
-                        "another");
-                System.out.println(skillProfs);
-            }
-            else{
-                System.out.println("That is not an option. Choose another");
-                System.out.println(skillProfs);
-            }
-            userProf = sc.nextLine();
-        }
-        profs.add(userProf);
     }
 }

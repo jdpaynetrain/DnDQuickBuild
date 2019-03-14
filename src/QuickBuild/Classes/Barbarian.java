@@ -21,38 +21,22 @@ public class Barbarian implements Classes {
         profs.addAll(Arrays.asList("Light Armor", "Medium Armor", "Shields",
                 "Simple Weapons", "Martial Weapons"));
         Scanner sc = new Scanner(System.in);
-        System.out.println("Choose a skill to have proficiency in:");
-        System.out.println(skillProfs);
-        String userProf = sc.nextLine();
-        while(!skillProfs.contains(userProf) || profs.contains(userProf)){
-            if(profs.contains(userProf)){
-                System.out.println("You already have proficiency. Choose " +
-                        "another");
-                System.out.println(skillProfs);
+        for(int i = 0; i < 2; i++) {
+            System.out.println("Choose a skill to have proficiency in:");
+            System.out.println(skillProfs);
+            String userProf = sc.nextLine();
+            while (!skillProfs.contains(userProf) || profs.contains(userProf)) {
+                if (profs.contains(userProf)) {
+                    System.out.println("You already have proficiency. Choose " +
+                            "another");
+                    System.out.println(skillProfs);
+                } else {
+                    System.out.println("That is not an option. Choose another");
+                    System.out.println(skillProfs);
+                }
+                userProf = sc.nextLine();
             }
-            else{
-                System.out.println("That is not an option. Choose another");
-                System.out.println(skillProfs);
-            }
-            userProf = sc.nextLine();
+            profs.add(userProf);
         }
-        profs.add(userProf);
-
-        System.out.println("Choose another skill to have proficiency in:");
-        System.out.println(skillProfs);
-        userProf = sc.nextLine();
-        while(!skillProfs.contains(userProf) || profs.contains(userProf)){
-            if(profs.contains(userProf)){
-                System.out.println("You already have proficiency. Choose " +
-                        "another");
-                System.out.println(skillProfs);
-            }
-            else{
-                System.out.println("That is not an option. Choose another");
-                System.out.println(skillProfs);
-            }
-            userProf = sc.nextLine();
-        }
-        profs.add(userProf);
     }
 }
