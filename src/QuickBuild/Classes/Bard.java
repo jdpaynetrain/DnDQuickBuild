@@ -1,7 +1,7 @@
 package QuickBuild.Classes;
 import java.util.*;
 
-public class Bard implements Classes {
+public class Bard implements IBard {
     private Map<String, Integer> scores = new LinkedHashMap<>();
 
     public Map<String, Integer> applyModifiers(List<Integer> baseStats){
@@ -16,8 +16,7 @@ public class Bard implements Classes {
     }
 
     public void classProfs(Set<String> profs){
-        profs.addAll(Arrays.asList("Light Armor", "Simple Weapons",
-                "Hand Crossbows", "Longswords", "Rapiers", "Shortswords"));
+        profs.addAll(bardProfs);
         Scanner sc = new Scanner(System.in);
 
         for(int i = 0; i < 3; i++) {

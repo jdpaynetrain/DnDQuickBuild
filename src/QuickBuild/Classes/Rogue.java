@@ -1,11 +1,7 @@
 package QuickBuild.Classes;
 import java.util.*;
 
-public class Rogue implements Classes {
-    private static final Set<String> skillProfs = new HashSet<>
-            (Arrays.asList("Acrobatics", "Athletics", "Deception", "Insight",
-                    "Intimidation", "Investigation", "Perception",
-                    "Performance", "Persuasion", "Sleight of Hand", "Stealth"));
+public class Rogue implements IRogue {
     private Map<String, Integer> scores = new LinkedHashMap<>();
 
     public Map<String, Integer> applyModifiers(List<Integer> baseStats){
@@ -20,22 +16,20 @@ public class Rogue implements Classes {
     }
 
     public void classProfs(Set<String> profs) {
-        profs.addAll(Arrays.asList("Light Armor", "Simple Weapons",
-                "Hand Crossbows", "Longswords", "Rapiers", "Shortswords",
-                "Thieve's Tools"));
+        profs.addAll(rogueProfs);
         Scanner sc = new Scanner(System.in);
         for(int i = 0; i < 4; i++) {
             System.out.println("Choose a skill to have proficiency in:");
-            System.out.println(skillProfs);
+            System.out.println(rogueSkills);
             String userProf = sc.nextLine();
-            while (!skillProfs.contains(userProf) || profs.contains(userProf)) {
+            while (!rogueSkills.contains(userProf) || profs.contains(userProf)) {
                 if (profs.contains(userProf)) {
                     System.out.println("You already have proficiency. Choose " +
                             "another");
-                    System.out.println(skillProfs);
+                    System.out.println(rogueSkills);
                 } else {
                     System.out.println("That is not an option. Choose another");
-                    System.out.println(skillProfs);
+                    System.out.println(rogueSkills);
                 }
                 userProf = sc.nextLine();
             }

@@ -1,10 +1,8 @@
 package QuickBuild.Classes;
 import java.util.*;
 
-public class Barbarian implements Classes {
-    private static final Set<String> skillProfs = new HashSet<>
-            (Arrays.asList("Animal Handling", "Athletics", "Intimidation",
-                    "Nature", "Perception", "Survival"));
+public class Barbarian implements IBarbarian {
+    
     private Map<String, Integer> scores = new LinkedHashMap<>();
 
     public Map<String, Integer> applyModifiers(List<Integer> baseStats){
@@ -17,22 +15,22 @@ public class Barbarian implements Classes {
         scores.put("CHA", baseStats.get(1));
         return scores;
     }
+
     public void classProfs(Set<String> profs){
-        profs.addAll(Arrays.asList("Light Armor", "Medium Armor", "Shields",
-                "Simple Weapons", "Martial Weapons"));
+        profs.addAll(barbProfs);
         Scanner sc = new Scanner(System.in);
         for(int i = 0; i < 2; i++) {
             System.out.println("Choose a skill to have proficiency in:");
-            System.out.println(skillProfs);
+            System.out.println(barbSkills);
             String userProf = sc.nextLine();
-            while (!skillProfs.contains(userProf) || profs.contains(userProf)) {
+            while (!barbSkills.contains(userProf) || profs.contains(userProf)) {
                 if (profs.contains(userProf)) {
                     System.out.println("You already have proficiency. Choose " +
                             "another");
-                    System.out.println(skillProfs);
+                    System.out.println(barbSkills);
                 } else {
                     System.out.println("That is not an option. Choose another");
-                    System.out.println(skillProfs);
+                    System.out.println(barbSkills);
                 }
                 userProf = sc.nextLine();
             }

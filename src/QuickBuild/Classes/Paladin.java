@@ -1,10 +1,7 @@
 package QuickBuild.Classes;
 import java.util.*;
 
-public class Paladin implements Classes {
-    private static final Set<String> skillProfs = new HashSet<>
-            (Arrays.asList("Athletics", "Insight", "Intimidation", "Medicine",
-                    "Persuasion", "Religion"));
+public class Paladin implements IPaladin {
     private Map<String, Integer> scores = new LinkedHashMap<>();
 
     public Map<String, Integer> applyModifiers(List<Integer> baseStats){
@@ -19,21 +16,20 @@ public class Paladin implements Classes {
     }
 
     public void classProfs(Set<String> profs) {
-        profs.addAll(Arrays.asList("All Armor", "Shields", "Simple Weapons",
-                "Martial Weapons"));
+        profs.addAll(paladinProfs);
         Scanner sc = new Scanner(System.in);
         for(int i = 0; i < 2; i++) {
             System.out.println("Choose a skill to have proficiency in:");
-            System.out.println(skillProfs);
+            System.out.println(paladinSkills);
             String userProf = sc.nextLine();
-            while (!skillProfs.contains(userProf) || profs.contains(userProf)) {
+            while (!paladinSkills.contains(userProf) || profs.contains(userProf)) {
                 if (profs.contains(userProf)) {
                     System.out.println("You already have proficiency. Choose " +
                             "another");
-                    System.out.println(skillProfs);
+                    System.out.println(paladinSkills);
                 } else {
                     System.out.println("That is not an option. Choose another");
-                    System.out.println(skillProfs);
+                    System.out.println(paladinSkills);
                 }
                 userProf = sc.nextLine();
             }

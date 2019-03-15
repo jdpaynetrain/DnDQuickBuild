@@ -1,10 +1,7 @@
 package QuickBuild.Classes;
 import java.util.*;
 
-public class Warlock implements Classes {
-    private static final Set<String> skillProfs = new HashSet<>
-            (Arrays.asList("Arcana", "Deception", "History", "Intimidation",
-                    "Investigation", "Nature", "Religion"));
+public class Warlock implements IWarlock {
     private Map<String, Integer> scores = new LinkedHashMap<>();
 
     public Map<String, Integer> applyModifiers(List<Integer> baseStats){
@@ -19,20 +16,20 @@ public class Warlock implements Classes {
     }
 
     public void classProfs(Set<String> profs) {
-        profs.addAll(Arrays.asList("Light Armor", "Simple Weapons"));
+        profs.addAll(warlockProfs);
         Scanner sc = new Scanner(System.in);
         for(int i = 0; i < 2; i++) {
             System.out.println("Choose a skill to have proficiency in:");
-            System.out.println(skillProfs);
+            System.out.println(warlockSkills);
             String userProf = sc.nextLine();
-            while (!skillProfs.contains(userProf) || profs.contains(userProf)) {
+            while (!warlockSkills.contains(userProf) || profs.contains(userProf)) {
                 if (profs.contains(userProf)) {
                     System.out.println("You already have proficiency. Choose " +
                             "another");
-                    System.out.println(skillProfs);
+                    System.out.println(warlockSkills);
                 } else {
                     System.out.println("That is not an option. Choose another");
-                    System.out.println(skillProfs);
+                    System.out.println(warlockSkills);
                 }
                 userProf = sc.nextLine();
             }
