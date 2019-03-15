@@ -5,6 +5,7 @@ import QuickBuild.Races.*;
 import java.util.*;
 
 public class Character {
+
     private List<Integer> baseStats;
     private Classes archetype;
     private Races racial;
@@ -89,6 +90,7 @@ public class Character {
     public void rollCharacter(String type, String race, Integer level){
         this.type = type;
         this.race = race;
+        this.level = 1;
         this.applyClass(type);
         this.applyRace(race);
         this.calcMods();
@@ -115,7 +117,6 @@ public class Character {
         health = health + temp + scoreMods.get("CON");
     }
 
-
     private void calcMods(){
         scoreMods = new LinkedHashMap<>();
         for(Map.Entry<String, Integer> entry: stats.entrySet()){
@@ -124,6 +125,7 @@ public class Character {
 
         }
     }
+
 
     private void ASI(){
         Scanner sc = new Scanner(System.in);
@@ -153,7 +155,12 @@ public class Character {
                 stats.put(userScore, stats.get(userScore) + 1);
             }
         }
+        else{
+
+        }
     }
+
+
 
     public void printStats(){
         System.out.println(race + "-" + type);
