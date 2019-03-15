@@ -1,5 +1,6 @@
 package QuickBuild.Classes;
 import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Rogue implements IRogue {
     private Map<String, Integer> scores = new LinkedHashMap<>();
@@ -35,5 +36,12 @@ public class Rogue implements IRogue {
             }
             profs.add(userProf);
         }
+    }
+    public Integer rollHitDie(){
+        return ThreadLocalRandom.current().nextInt(1, 9);
+    }
+
+    public Integer baseHealth(){
+        return 8;
     }
 }

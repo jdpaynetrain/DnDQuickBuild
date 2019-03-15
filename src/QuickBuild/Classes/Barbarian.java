@@ -1,5 +1,6 @@
 package QuickBuild.Classes;
 import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Barbarian implements IBarbarian {
     
@@ -36,5 +37,13 @@ public class Barbarian implements IBarbarian {
             }
             profs.add(userProf);
         }
+    }
+
+    public Integer rollHitDie(){
+        return ThreadLocalRandom.current().nextInt(1, 13);
+    }
+
+    public Integer baseHealth(){
+        return 12;
     }
 }

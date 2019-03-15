@@ -15,7 +15,7 @@ public class QuickBuilder {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         Character person = new Character();
-        
+
         System.out.println("What race would you like to play? Options are: ");
         System.out.println(allRaces);
         String userRace = sc.nextLine();
@@ -34,7 +34,16 @@ public class QuickBuilder {
             userClass = sc.nextLine();
         }
 
-        person.rollCharacter(userClass, userRace);
+        System.out.println("What level character do you want? (1-20)");
+        int level = sc.nextInt();
+        sc.nextLine();
+        while(level > 20 || level < 1){
+            System.out.println("Level must be between 1 and 20");
+            level = sc.nextInt();
+            sc.nextLine();
+        }
+
+        person.rollCharacter(userClass, userRace, level);
         person.printStats();
     }
 

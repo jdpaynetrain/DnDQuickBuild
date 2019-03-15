@@ -1,5 +1,6 @@
 package QuickBuild.Classes;
 import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Fighter implements IFighter {
 
@@ -37,5 +38,13 @@ public class Fighter implements IFighter {
             }
             profs.add(userProf);
         }
+    }
+
+    public Integer rollHitDie(){
+        return ThreadLocalRandom.current().nextInt(1, 11);
+    }
+
+    public Integer baseHealth(){
+        return 10;
     }
 }

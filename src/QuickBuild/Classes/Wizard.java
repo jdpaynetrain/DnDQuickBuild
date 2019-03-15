@@ -1,5 +1,6 @@
 package QuickBuild.Classes;
 import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Wizard implements IWizard {
     private Map<String, Integer> scores = new LinkedHashMap<>();
@@ -35,5 +36,13 @@ public class Wizard implements IWizard {
             }
             profs.add(userProf);
         }
+    }
+
+    public Integer rollHitDie(){
+        return ThreadLocalRandom.current().nextInt(1, 7);
+    }
+
+    public Integer baseHealth(){
+        return 6;
     }
 }

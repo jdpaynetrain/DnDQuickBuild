@@ -15,6 +15,8 @@ public class Character {
     private Set<String> proficiencies;
     private Set<String> knownLanguages;
     private Map<Boolean, Integer> darkvision;
+    private Integer health;
+    private Integer level;
 
     public Character(){
         StatRoller roller = new StatRoller();
@@ -82,15 +84,29 @@ public class Character {
         racial.applyBuffs(stats);
     }
 
-    public void rollCharacter(String type, String race){
+    public void rollCharacter(String type, String race, Integer level){
         this.type = type;
         this.race = race;
+        this.level = level;
         this.applyClass(type);
         this.applyRace(race);
         this.calcMods();
         this.knownLanguages = racial.racialLanguages();
         this.proficiencies = racial.racialProfs();
         archetype.classProfs(proficiencies);
+        health = archetype.baseHealth() + scoreMods.get("CON");
+/*        if(level > 1){
+            for(int i = 1; i < level; i++)
+                archetype.levelUp(this);
+                this.calcMods();
+        } */
+    }
+
+    public void addHealth(){
+        int temp = archetype.rollHitDie();
+        while(temp == 1)
+            temp = archetype.rollHitDie();
+        health = health + temp + scoreMods.get("CON");
     }
 
 
@@ -109,6 +125,7 @@ public class Character {
             System.out.println(entry.getKey() + " -- " + entry.getValue() +
                                "(" + scoreMods.get(entry.getKey()) + ")");
         }
+        System.out.println("Health: " + health);
         System.out.println("Proficiencies are:");
         System.out.println(proficiencies);
         System.out.println("Known languages are:");

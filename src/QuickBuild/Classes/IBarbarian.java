@@ -8,4 +8,5 @@ public interface IBarbarian extends Classes {
                     "Nature", "Perception", "Survival"));
     Set<String> barbProfs = new HashSet<>(Arrays.asList("Light Armor",
             "Medium Armor", "Shields", "Simple Weapons", "Martial Weapons"));
+    
 }

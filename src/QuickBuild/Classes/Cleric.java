@@ -1,5 +1,6 @@
 package QuickBuild.Classes;
 import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Cleric implements ICleric {
 
@@ -37,5 +38,13 @@ public class Cleric implements ICleric {
             }
             profs.add(userProf);
         }
+    }
+
+    public Integer rollHitDie(){
+        return ThreadLocalRandom.current().nextInt(1, 9);
+    }
+
+    public Integer baseHealth(){
+        return 8;
     }
 }
