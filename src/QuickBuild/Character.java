@@ -103,17 +103,12 @@ public class Character {
                     this.calcMods();
                 }
                 this.level = i;
-                this.levelUp();
+                this.addHealth();
             }
         }
     }
 
-    public void levelUp(){
-        //archetype.levelUp(this);
-        this.addHealth();
-    }
-
-    public void addHealth(){
+    private void addHealth(){
         int temp = archetype.rollHitDie();
         while(temp == 1)
             temp = archetype.rollHitDie();
@@ -128,10 +123,6 @@ public class Character {
                             Math.floorDiv(entry.getValue() - 10, 2));
 
         }
-    }
-
-    public Integer getLevel(){
-        return this.level;
     }
 
     private void ASI(){

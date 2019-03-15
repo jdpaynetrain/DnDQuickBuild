@@ -52,12 +52,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="108" />
-          <entry key="java" value="19596" />
+          <entry key="java" value="19613" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="19596" />
+          <entry key="JAVA" value="19613" />
           <entry key="PLAIN_TEXT" value="108" />
         </counts>
       </usages-collector>
@@ -77,12 +77,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/QuickBuild/Character.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="168" column="28" selection-start-line="168" selection-start-column="28" selection-end-line="168" selection-end-column="28" />
-              <folding>
-                <element signature="e#4866#4867#0" expanded="true" />
-                <element signature="e#4899#4900#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="102">
+              <caret line="110" column="11" selection-start-line="110" selection-start-column="11" selection-end-line="110" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -687,12 +683,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/QuickBuild/Character.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="168" column="28" selection-start-line="168" selection-start-column="28" selection-end-line="168" selection-end-column="28" />
-          <folding>
-            <element signature="e#4866#4867#0" expanded="true" />
-            <element signature="e#4899#4900#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="102">
+          <caret line="110" column="11" selection-start-line="110" selection-start-column="11" selection-end-line="110" selection-end-column="11" />
         </state>
       </provider>
     </entry>
