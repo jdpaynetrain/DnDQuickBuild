@@ -46,5 +46,4 @@ public class QuickBuilder {
         person.rollCharacter(userClass, userRace, level);
         person.printStats();
     }
-
 }

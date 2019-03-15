@@ -5,19 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/QuickBuild/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QuickBuild/Character.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/QuickBuild/Classes/Barbarian.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QuickBuild/Classes/Barbarian.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/QuickBuild/Classes/Bard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QuickBuild/Classes/Bard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/QuickBuild/Classes/Classes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QuickBuild/Classes/Classes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/QuickBuild/Classes/Cleric.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QuickBuild/Classes/Cleric.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/QuickBuild/Classes/Druid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QuickBuild/Classes/Druid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/QuickBuild/Classes/Fighter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QuickBuild/Classes/Fighter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/QuickBuild/Classes/IBarbarian.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QuickBuild/Classes/IBarbarian.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/QuickBuild/Classes/Monk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QuickBuild/Classes/Monk.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/QuickBuild/Classes/Paladin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QuickBuild/Classes/Paladin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/QuickBuild/Classes/Ranger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QuickBuild/Classes/Ranger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/QuickBuild/Classes/Rogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QuickBuild/Classes/Rogue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/QuickBuild/Classes/Sorcerer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QuickBuild/Classes/Sorcerer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/QuickBuild/Classes/Warlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QuickBuild/Classes/Warlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/QuickBuild/Classes/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QuickBuild/Classes/Wizard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/QuickBuild/QuickBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QuickBuild/QuickBuilder.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -53,7 +41,7 @@
         <counts>
           <entry key="class" value="2" />
           <entry key="iml" value="1" />
-          <entry key="java" value="248" />
+          <entry key="java" value="249" />
           <entry key="md" value="1" />
         </counts>
       </usages-collector>
@@ -61,19 +49,19 @@
         <counts>
           <entry key="CLASS" value="2" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="248" />
+          <entry key="JAVA" value="249" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="108" />
-          <entry key="java" value="18239" />
+          <entry key="java" value="19542" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="18239" />
+          <entry key="JAVA" value="19542" />
           <entry key="PLAIN_TEXT" value="108" />
         </counts>
       </usages-collector>
@@ -84,8 +72,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/QuickBuild/QuickBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="43" column="9" lean-forward="true" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
+            <state relative-caret-position="-47">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
             </state>
           </provider>
         </entry>
@@ -93,8 +81,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/QuickBuild/Character.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="100" column="32" selection-start-line="100" selection-start-column="32" selection-end-line="100" selection-end-column="32" />
+            <state relative-caret-position="310">
+              <caret line="102" column="36" selection-start-line="102" selection-start-column="36" selection-end-line="102" selection-end-column="36" />
+              <folding>
+                <element signature="e#4866#4867#0" expanded="true" />
+                <element signature="e#4899#4900#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -102,8 +94,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/QuickBuild/Classes/Classes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="6" lean-forward="true" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+            <state relative-caret-position="102">
+              <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="11" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -112,10 +104,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/QuickBuild/Classes/Wizard.java">
+        <entry file="file://$PROJECT_DIR$/src/QuickBuild/Classes/Barbarian.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="41" column="55" selection-start-line="41" selection-start-column="55" selection-end-line="41" selection-end-column="55" />
+            <state relative-caret-position="356">
+              <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -200,12 +192,9 @@
         <option value="$PROJECT_DIR$/src/QuickBuild/Classes/IWarlock.java" />
         <option value="$PROJECT_DIR$/src/QuickBuild/Classes/IWizard.java" />
         <option value="$PROJECT_DIR$/src/QuickBuild/Classes/IBarbarian.java" />
-        <option value="$PROJECT_DIR$/src/QuickBuild/QuickBuilder.java" />
-        <option value="$PROJECT_DIR$/src/QuickBuild/Classes/Classes.java" />
         <option value="$PROJECT_DIR$/src/QuickBuild/Classes/Bard.java" />
         <option value="$PROJECT_DIR$/src/QuickBuild/Classes/Cleric.java" />
         <option value="$PROJECT_DIR$/src/QuickBuild/Classes/Druid.java" />
-        <option value="$PROJECT_DIR$/src/QuickBuild/Classes/Barbarian.java" />
         <option value="$PROJECT_DIR$/src/QuickBuild/Classes/Fighter.java" />
         <option value="$PROJECT_DIR$/src/QuickBuild/Classes/Monk.java" />
         <option value="$PROJECT_DIR$/src/QuickBuild/Classes/Paladin.java" />
@@ -214,6 +203,9 @@
         <option value="$PROJECT_DIR$/src/QuickBuild/Classes/Sorcerer.java" />
         <option value="$PROJECT_DIR$/src/QuickBuild/Classes/Warlock.java" />
         <option value="$PROJECT_DIR$/src/QuickBuild/Classes/Wizard.java" />
+        <option value="$PROJECT_DIR$/src/QuickBuild/Classes/Classes.java" />
+        <option value="$PROJECT_DIR$/src/QuickBuild/QuickBuilder.java" />
+        <option value="$PROJECT_DIR$/src/QuickBuild/Classes/Barbarian.java" />
         <option value="$PROJECT_DIR$/src/QuickBuild/Character.java" />
       </list>
     </option>
@@ -307,7 +299,7 @@
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.4367622" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.43643725" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -324,7 +316,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32851985" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32740214" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24939272" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -580,27 +572,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/QuickBuild/QuickBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="43" column="9" lean-forward="true" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/QuickBuild/Classes/Druid.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
           <caret line="41" column="55" selection-start-line="41" selection-start-column="55" selection-end-line="41" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/QuickBuild/Classes/Barbarian.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="46" column="17" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -677,16 +652,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/QuickBuild/Classes/Classes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="6" lean-forward="true" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/QuickBuild/Classes/Wizard.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="344">
@@ -697,10 +662,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/QuickBuild/Classes/Barbarian.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/QuickBuild/Classes/Classes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="11" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/QuickBuild/QuickBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-47">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/QuickBuild/Character.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="100" column="32" selection-start-line="100" selection-start-column="32" selection-end-line="100" selection-end-column="32" />
+        <state relative-caret-position="310">
+          <caret line="102" column="36" selection-start-line="102" selection-start-column="36" selection-end-line="102" selection-end-column="36" />
+          <folding>
+            <element signature="e#4866#4867#0" expanded="true" />
+            <element signature="e#4899#4900#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

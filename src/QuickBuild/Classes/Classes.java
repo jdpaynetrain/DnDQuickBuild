@@ -14,5 +14,5 @@ public interface Classes {
     void classProfs(Set<String> profs);
     Integer baseHealth();
     Integer rollHitDie();
-    //Integer levelUp(Character person);
+    //void levelUp(Character person);
 }

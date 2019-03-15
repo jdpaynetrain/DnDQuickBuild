@@ -17,6 +17,8 @@ public class Character {
     private Map<Boolean, Integer> darkvision;
     private Integer health;
     private Integer level;
+    private Set<String> allScores = new HashSet<>
+            (Arrays.asList("STR", "DEX", "CON", "INT", "WIS", "CHA"));
 
     public Character(){
         StatRoller roller = new StatRoller();
@@ -87,7 +89,6 @@ public class Character {
     public void rollCharacter(String type, String race, Integer level){
         this.type = type;
         this.race = race;
-        this.level = level;
         this.applyClass(type);
         this.applyRace(race);
         this.calcMods();
@@ -95,11 +96,21 @@ public class Character {
         this.proficiencies = racial.racialProfs();
         archetype.classProfs(proficiencies);
         health = archetype.baseHealth() + scoreMods.get("CON");
-/*        if(level > 1){
-            for(int i = 1; i < level; i++)
-                archetype.levelUp(this);
-                this.calcMods();
-        } */
+        if(level > 1){
+            for(int i = 2; i <= level; i++) {
+                if(i == 4 || i == 8 || i == 12 || i == 16 || i == 19) {
+                    this.ASI();
+                    this.calcMods();
+                }
+                this.level = i;
+                this.levelUp();
+            }
+        }
+    }
+
+    public void levelUp(){
+        //archetype.levelUp(this);
+        this.addHealth();
     }
 
     public void addHealth(){
@@ -130,5 +141,39 @@ public class Character {
         System.out.println(proficiencies);
         System.out.println("Known languages are:");
         System.out.println(knownLanguages);
+    }
+
+    public Integer getLevel(){
+        return this.level;
+    }
+
+    private void ASI(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Would you like to increase your ability score (AS)"
+                + " or gain a feat (feat)?");
+        String userChoice = sc.nextLine();
+        while(!userChoice.equals("AS") && !userChoice.equals("feat")){
+            System.out.println("Choice must be AS or feat");
+            userChoice = sc.nextLine();
+        }
+        if(userChoice.equals("AS")){
+            for(int i = 0; i < 2; i++){
+                System.out.println("Choose an ability to increase:");
+                System.out.println(allScores);
+                String userScore = sc.nextLine();
+                while(!allScores.contains(userScore) ||
+                        stats.get(userScore) == 20){
+                    if(allScores.contains(userScore)){
+                        System.out.println("Scores can only be increased to 20."
+                                + " Choose another.");
+                    }
+                    else{
+                        System.out.println("That isn't a choice");
+                    }
+                    userScore = sc.nextLine();
+                }
+                stats.put(userScore, stats.get(userScore) + 1);
+            }
+        }
     }
 }

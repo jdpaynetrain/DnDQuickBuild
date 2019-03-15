@@ -1,4 +1,6 @@
 package QuickBuild.Classes;
+import QuickBuild.Character;
+
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
