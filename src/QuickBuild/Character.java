@@ -130,19 +130,6 @@ public class Character {
         }
     }
 
-    public void printStats(){
-        System.out.println(race + " " + type);
-        for(Map.Entry<String, Integer> entry: stats.entrySet()){
-            System.out.println(entry.getKey() + " -- " + entry.getValue() +
-                               "(" + scoreMods.get(entry.getKey()) + ")");
-        }
-        System.out.println("Health: " + health);
-        System.out.println("Proficiencies are:");
-        System.out.println(proficiencies);
-        System.out.println("Known languages are:");
-        System.out.println(knownLanguages);
-    }
-
     public Integer getLevel(){
         return this.level;
     }
@@ -175,5 +162,19 @@ public class Character {
                 stats.put(userScore, stats.get(userScore) + 1);
             }
         }
+    }
+
+    public void printStats(){
+        System.out.println(race + "-" + type);
+        System.out.println("Level: " + level);
+        for(Map.Entry<String, Integer> entry: stats.entrySet()){
+            System.out.println(entry.getKey() + " -- " + entry.getValue() +
+                    "(" + scoreMods.get(entry.getKey()) + ")");
+        }
+        System.out.println("Health: " + health);
+        System.out.println("Proficiencies are:");
+        System.out.println(proficiencies);
+        System.out.println("Known languages are:");
+        System.out.println(knownLanguages);
     }
 }
