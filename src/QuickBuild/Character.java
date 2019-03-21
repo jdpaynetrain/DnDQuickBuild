@@ -161,23 +161,40 @@ public class Character {
         }
     }
 
-    private void printScores(){
+    public void printScores(){
         for(Map.Entry<String, Integer> entry: stats.entrySet()){
             System.out.println(entry.getKey() + " -- " + entry.getValue() +
                     "(" + scoreMods.get(entry.getKey()) + ")");
         }
     }
 
-
-
-    public void printStats(){
-        System.out.println(race + "-" + type);
-        System.out.println("Level: " + level);
-        this.printScores();
-        System.out.println("Health: " + health);
-        System.out.println("Proficiencies are:");
-        System.out.println(proficiencies);
-        System.out.println("Known languages are:");
-        System.out.println(knownLanguages);
+    public Map<String, Integer> getStats() {
+        return stats;
     }
+
+    public Integer getLevel(){
+        return level;
+    }
+
+    public String getRace(){
+        return race;
+    }
+
+    public String getType(){
+        return type;
+    }
+
+    public Integer getHealth(){
+        return health;
+    }
+
+    public Set<String> getKnownLanguages() {
+        return knownLanguages;
+    }
+
+    public Set<String> getProficiencies() {
+        return proficiencies;
+    }
+
+
 }

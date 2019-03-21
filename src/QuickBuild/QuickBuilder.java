@@ -44,6 +44,19 @@ public class QuickBuilder {
         }
 
         person.rollCharacter(userClass, userRace, level);
-        person.printStats();
+        printStats(person);
     }
+
+    public static void printStats(Character person){
+        System.out.println(person.getRace() + "-" + person.getType());
+        System.out.println("Level: " + person.getLevel());
+        person.printScores();
+        System.out.println("Health: " + person.getHealth());
+        System.out.println("Proficiencies are:");
+        System.out.println(person.getProficiencies());
+        System.out.println("Known languages are:");
+        System.out.println(person.getKnownLanguages());
+    }
+
+
 }
