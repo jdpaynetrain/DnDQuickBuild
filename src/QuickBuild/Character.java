@@ -2,6 +2,7 @@ package QuickBuild;
 
 import QuickBuild.Classes.*;
 import QuickBuild.Races.*;
+import QuickBuild.Feats.*;
 import java.util.*;
 
 public class Character {
@@ -20,6 +21,11 @@ public class Character {
     private Integer level;
     private Set<String> allScores = new HashSet<>
             (Arrays.asList("STR", "DEX", "CON", "INT", "WIS", "CHA"));
+    private Set<String> allFeats = new HashSet<>
+            (Arrays.asList("Alert", ""));
+    private Integer initiative;
+    private Set<String> feats;
+
 
     public Character(){
         StatRoller roller = new StatRoller();
@@ -94,6 +100,7 @@ public class Character {
         this.applyClass(type);
         this.applyRace(race);
         this.calcMods();
+        this.initiative = scoreMods.get("DEX");
         this.knownLanguages = racial.racialLanguages();
         this.proficiencies = racial.racialProfs();
         archetype.classProfs(proficiencies);
@@ -124,6 +131,8 @@ public class Character {
                             Math.floorDiv(entry.getValue() - 10, 2));
 
         }
+        this.initiative = scoreMods.get("DEX");
+        
     }
 
 
@@ -157,6 +166,7 @@ public class Character {
             }
         }
         else{
+
 
         }
     }
@@ -194,6 +204,18 @@ public class Character {
 
     public Set<String> getProficiencies() {
         return proficiencies;
+    }
+
+    public Integer getInitiative(){
+        return initiative;
+    }
+
+    public void updateStat(String stat, Integer bonus){
+        stats.put(stat, Math.min(stats.get(stat) + bonus, 20));
+    }
+
+    public void addInit(Integer bonus){
+        this.initiative += bonus;
     }
 
 }

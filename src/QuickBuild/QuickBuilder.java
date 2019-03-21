@@ -51,6 +51,7 @@ public class QuickBuilder {
         System.out.println(person.getRace() + "-" + person.getType());
         System.out.println("Level: " + person.getLevel());
         person.printScores();
+        System.out.println("Initiative: " + person.getInitiative());
         System.out.println("Health: " + person.getHealth());
         System.out.println("Proficiencies are:");
         System.out.println(person.getProficiencies());
