@@ -11,7 +11,7 @@
     3. If the total sum of the stats or there isn't a stat 15 or higher, roll again
   
 
-  Other features I want to implement are:
+   ## Other features I want to implement are:
   
     1) Be able to create a higher level character (Done)
     2) Feats
@@ -19,7 +19,7 @@
     4) A way to export to a pdf (way down the road)
     5) Items/Spells (Decided against)
   
-  My current roadmap is:
+  ## My current roadmap is:
   
     1) Finish up class proficiencies. (Done)
     2) Add a dice interface/class for health and things (Decided against)
@@ -27,3 +27,6 @@
     4) Add feats
     5) Add subclasses
     6) Add Multiclassing
+
+ ### Running the program
+  
