@@ -22,9 +22,9 @@ public class Character {
     private Set<String> allScores = new HashSet<>
             (Arrays.asList("STR", "DEX", "CON", "INT", "WIS", "CHA"));
     private Set<String> allFeats = new HashSet<>
-            (Arrays.asList("Alert", ""));
+            (Arrays.asList("Alert", "Athlete"));
     private Integer initiative;
-    private Set<String> feats;
+    private Set<String> feats = new HashSet<>();
 
 
     public Character(){
@@ -100,7 +100,6 @@ public class Character {
         this.applyClass(type);
         this.applyRace(race);
         this.calcMods();
-        this.initiative = scoreMods.get("DEX");
         this.knownLanguages = racial.racialLanguages();
         this.proficiencies = racial.racialProfs();
         archetype.classProfs(proficiencies);
@@ -114,6 +113,10 @@ public class Character {
                 this.level = i;
                 this.addHealth();
             }
+        }
+        IFeats temp = new Empty();
+        for(String entry: feats){
+            temp.addFeat(this, entry);
         }
     }
 
@@ -132,7 +135,6 @@ public class Character {
 
         }
         this.initiative = scoreMods.get("DEX");
-        
     }
 
 
@@ -166,8 +168,25 @@ public class Character {
             }
         }
         else{
-
-
+            System.out.println("Choose a feat");
+            System.out.println(allFeats);
+            String userFeat = sc.nextLine();
+            while(!allFeats.contains(userFeat) || feats.contains(userFeat) || !checkPreRegs(userFeat)){
+                if(feats.contains(userFeat)){
+                    System.out.println("You already have this feat. Chose another");
+                    System.out.println(allFeats);
+                }
+                else if(!allFeats.contains(userFeat)){
+                    System.out.println("That is not an option. Chose another");
+                    System.out.println(allFeats);
+                }
+                else{
+                    System.out.println("You don't meet the pre-reqs. Chose another");
+                    System.out.println(allFeats);
+                }
+                userFeat = sc.nextLine();
+            }
+            feats.add(userFeat);
         }
     }
 
@@ -210,12 +229,35 @@ public class Character {
         return initiative;
     }
 
+    public Integer checkStat(String stat){
+        return stats.get(stat);
+    }
+
     public void updateStat(String stat, Integer bonus){
+        if(stats.get(stat) == 20)
+            System.out.println("Stat (" + stat + ") is already maxed");
         stats.put(stat, Math.min(stats.get(stat) + bonus, 20));
     }
 
     public void addInit(Integer bonus){
         this.initiative += bonus;
+    }
+
+    private Boolean checkPreRegs(String feat){
+        IFeats temp;
+        switch (feat){
+            case "Athlete":
+                temp = new Athlete();
+                break;
+
+
+
+            default:
+                temp = new Alert();
+
+
+        }
+        return temp.metPreReqs(this);
     }
 
 }
