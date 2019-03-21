@@ -29,4 +29,6 @@
     6) Add Multiclassing
 
  ### Running the program
-  
+    To compile - "make"
+    To run - "make run"
+    To remove build dir and class file - "make clean"
