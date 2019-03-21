@@ -196,5 +196,4 @@ public class Character {
         return proficiencies;
     }
 
-
 }

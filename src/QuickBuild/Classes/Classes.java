@@ -1,5 +1,4 @@
 package QuickBuild.Classes;
-import QuickBuild.Character;
 
 import java.util.*;
 

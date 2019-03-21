@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="458d9d4f-3787-4d00-9d1d-f945e3ebe7cc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/QuickBuild/Feats/IFeats.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JQuickBuild/QuickBuild/Character.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JQuickBuild/QuickBuild/Character.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JQuickBuild/QuickBuild/QuickBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JQuickBuild/QuickBuild/QuickBuilder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/QuickBuild/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QuickBuild/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/QuickBuild/QuickBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QuickBuild/QuickBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/QuickBuild/Classes/Classes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QuickBuild/Classes/Classes.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,7 +19,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/QuickBuild/QuickBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
+            <state relative-caret-position="782">
               <caret line="46" column="27" lean-forward="true" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
             </state>
           </provider>
@@ -29,8 +28,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/QuickBuild/Character.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3264">
-              <caret line="198" selection-start-line="198" selection-end-line="198" />
+            <state relative-caret-position="3068">
+              <caret line="196" column="5" selection-start-line="196" selection-start-column="5" selection-end-line="196" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#5945#5946#0" expanded="true" />
@@ -47,10 +46,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/QuickBuild/Feats/IFeats.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/QuickBuild/Races/Races.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
               <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/QuickBuild/Classes/Classes.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="27" selection-start-column="27" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -138,7 +155,6 @@
         <option value="$PROJECT_DIR$/src/QuickBuild/Classes/Sorcerer.java" />
         <option value="$PROJECT_DIR$/src/QuickBuild/Classes/Warlock.java" />
         <option value="$PROJECT_DIR$/src/QuickBuild/Classes/Wizard.java" />
-        <option value="$PROJECT_DIR$/src/QuickBuild/Classes/Classes.java" />
         <option value="$PROJECT_DIR$/src/QuickBuild/Classes/Barbarian.java" />
         <option value="$PROJECT_DIR$/src/QuickBuild/Classes/IMonk.java" />
         <option value="$PROJECT_DIR$/src/QuickBuild/Races/IHalfling.java" />
@@ -148,9 +164,11 @@
         <option value="$PROJECT_DIR$/src/QuickBuild/Races/DwarfHill.java" />
         <option value="$PROJECT_DIR$/src/QuickBuild/Races/HalflingLightfoot.java" />
         <option value="$PROJECT_DIR$/src/QuickBuild/Races/HalflingStout.java" />
-        <option value="$PROJECT_DIR$/src/QuickBuild/Character.java" />
         <option value="$PROJECT_DIR$/src/QuickBuild/QuickBuilder.java" />
         <option value="$PROJECT_DIR$/src/QuickBuild/Races/Races.java" />
+        <option value="$PROJECT_DIR$/src/QuickBuild/Character.java" />
+        <option value="$PROJECT_DIR$/src/QuickBuild/Classes/Classes.java" />
+        <option value="$PROJECT_DIR$/src/QuickBuild/Feats/IFeats.java" />
       </list>
     </option>
   </component>
@@ -202,7 +220,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="Vector&#9;PSI&#9;JAVA://java.util.Vector" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553191694895" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553191995995" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
@@ -246,7 +264,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15298508" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.15298508" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -308,7 +326,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://Z:/Documents/Java/Homework4/Test/cpsc2150/connectX/TestIGameBoard.java" />
     <entry file="file://Z:/Documents/Java/Lab 8/test/cpsc2150/Speedster/DirectionalSpeedsterTest.java" />
     <entry file="file://$PROJECT_DIR$/src/QuickBuild/Races/GnomeForest.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -556,16 +573,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/QuickBuild/Classes/Classes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="63" lean-forward="true" selection-start-line="11" selection-start-column="63" selection-end-line="11" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/QuickBuild/Classes/Barbarian.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -628,15 +635,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/QuickBuild/QuickBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
+        <state relative-caret-position="782">
           <caret line="46" column="27" lean-forward="true" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/QuickBuild/Character.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3264">
-          <caret line="198" selection-start-line="198" selection-end-line="198" />
+        <state relative-caret-position="3068">
+          <caret line="196" column="5" selection-start-line="196" selection-start-column="5" selection-end-line="196" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#5945#5946#0" expanded="true" />
@@ -651,10 +658,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/QuickBuild/Classes/Classes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="27" selection-start-column="27" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/QuickBuild/Races/Races.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/QuickBuild/Feats/IFeats.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
         </state>
       </provider>
     </entry>
