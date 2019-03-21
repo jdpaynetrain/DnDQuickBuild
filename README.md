@@ -11,16 +11,15 @@
     2) Sum the 3 rolls for each stat
     3) If the total sum of the stats or there isn't a stat 15 or higher, roll again
   
+
   Other features I want to implement are:
-  
-    1) ~~Be able to create a higher level character.~~ (Done)
+    1) ~~Be able to create a higher level character~~ (Done)
     2) Feats
     3) ~~When creating a higher level character roll health for each level~~ (Done)
     4) A way to export to a pdf (way down the road)
     5) ~~Items/Spells~~ (Decided against)
   
   My current roadmap is:
-  
     1) ~~Finish up class proficiencies.~~ (Done)
     2) ~~Add a dice interface/class for health and things~~ (Decided against)
     3) ~~Add interfaces for races (e.g. Dwarf, Human, Elf)~~ (Decicded against)
