@@ -139,7 +139,7 @@ public class Character {
         if(userChoice.equals("AS")){
             for(int i = 0; i < 2; i++){
                 System.out.println("Choose an ability to increase:");
-                System.out.println(allScores);
+                this.printScores();
                 String userScore = sc.nextLine();
                 while(!allScores.contains(userScore) ||
                         stats.get(userScore) == 20){
@@ -149,6 +149,7 @@ public class Character {
                     }
                     else{
                         System.out.println("That isn't a choice");
+                        System.out.println(allScores);
                     }
                     userScore = sc.nextLine();
                 }
@@ -160,15 +161,19 @@ public class Character {
         }
     }
 
+    private void printScores(){
+        for(Map.Entry<String, Integer> entry: stats.entrySet()){
+            System.out.println(entry.getKey() + " -- " + entry.getValue() +
+                    "(" + scoreMods.get(entry.getKey()) + ")");
+        }
+    }
+
 
 
     public void printStats(){
         System.out.println(race + "-" + type);
         System.out.println("Level: " + level);
-        for(Map.Entry<String, Integer> entry: stats.entrySet()){
-            System.out.println(entry.getKey() + " -- " + entry.getValue() +
-                    "(" + scoreMods.get(entry.getKey()) + ")");
-        }
+        this.printScores();
         System.out.println("Health: " + health);
         System.out.println("Proficiencies are:");
         System.out.println(proficiencies);
