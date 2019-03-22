@@ -35,4 +35,12 @@
     
     
 ### Possible Errors
-If you run into an issue with the wrong javac version or are missing the repository for jdk 11, follow the instructions on these links [itsfoss.com](https://itsfoss.com/add-apt-repository-command-not-found/) [ubuntuhandbook.org](http://ubuntuhandbook.org/index.php/2018/11/how-to-install-oracle-java-11-in-ubuntu-18-04-18-10/)
+I built and run this code using
+
+    openjdk version "10.0.2" 2018-07-17
+    javac 10.0.2
+    
+If you run into compiling errors follow the instructions on this site [digitalocean.com](https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04)
+
+
+When compiling if an error about "build directory not found" comes up, just make a directory called build then try to compile again
