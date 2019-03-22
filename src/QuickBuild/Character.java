@@ -2,6 +2,7 @@ package QuickBuild;
 
 import QuickBuild.Classes.*;
 import QuickBuild.Races.*;
+import QuickBuild.Feats.*;
 import java.util.*;
 
 public class Character {
@@ -20,6 +21,11 @@ public class Character {
     private Integer level;
     private Set<String> allScores = new HashSet<>
             (Arrays.asList("STR", "DEX", "CON", "INT", "WIS", "CHA"));
+    private Set<String> allFeats = new HashSet<>
+            (Arrays.asList("Alert", "Athlete"));
+    private Integer initiative;
+    private Set<String> feats = new HashSet<>();
+
 
     public Character(){
         StatRoller roller = new StatRoller();
@@ -108,6 +114,10 @@ public class Character {
                 this.addHealth();
             }
         }
+        IFeats temp = new Empty();
+        for(String entry: feats){
+            temp.addFeat(this, entry);
+        }
     }
 
     private void addHealth(){
@@ -124,6 +134,7 @@ public class Character {
                             Math.floorDiv(entry.getValue() - 10, 2));
 
         }
+        this.initiative = scoreMods.get("DEX");
     }
 
 
@@ -139,7 +150,7 @@ public class Character {
         if(userChoice.equals("AS")){
             for(int i = 0; i < 2; i++){
                 System.out.println("Choose an ability to increase:");
-                System.out.println(allScores);
+                this.printScores();
                 String userScore = sc.nextLine();
                 while(!allScores.contains(userScore) ||
                         stats.get(userScore) == 20){
@@ -149,6 +160,7 @@ public class Character {
                     }
                     else{
                         System.out.println("That isn't a choice");
+                        System.out.println(allScores);
                     }
                     userScore = sc.nextLine();
                 }
@@ -156,23 +168,96 @@ public class Character {
             }
         }
         else{
-
+            System.out.println("Choose a feat");
+            System.out.println(allFeats);
+            String userFeat = sc.nextLine();
+            while(!allFeats.contains(userFeat) || feats.contains(userFeat) || !checkPreRegs(userFeat)){
+                if(feats.contains(userFeat)){
+                    System.out.println("You already have this feat. Chose another");
+                    System.out.println(allFeats);
+                }
+                else if(!allFeats.contains(userFeat)){
+                    System.out.println("That is not an option. Chose another");
+                    System.out.println(allFeats);
+                }
+                else{
+                    System.out.println("You don't meet the pre-reqs. Chose another");
+                    System.out.println(allFeats);
+                }
+                userFeat = sc.nextLine();
+            }
+            feats.add(userFeat);
         }
     }
 
-
-
-    public void printStats(){
-        System.out.println(race + "-" + type);
-        System.out.println("Level: " + level);
+    public void printScores(){
         for(Map.Entry<String, Integer> entry: stats.entrySet()){
             System.out.println(entry.getKey() + " -- " + entry.getValue() +
                     "(" + scoreMods.get(entry.getKey()) + ")");
         }
-        System.out.println("Health: " + health);
-        System.out.println("Proficiencies are:");
-        System.out.println(proficiencies);
-        System.out.println("Known languages are:");
-        System.out.println(knownLanguages);
     }
+
+    public Map<String, Integer> getStats() {
+        return stats;
+    }
+
+    public Integer getLevel(){
+        return level;
+    }
+
+    public String getRace(){
+        return race;
+    }
+
+    public String getType(){
+        return type;
+    }
+
+    public Integer getHealth(){
+        return health;
+    }
+
+    public Set<String> getKnownLanguages() {
+        return knownLanguages;
+    }
+
+    public Set<String> getProficiencies() {
+        return proficiencies;
+    }
+
+    public Integer getInitiative(){
+        return initiative;
+    }
+
+    public Integer checkStat(String stat){
+        return stats.get(stat);
+    }
+
+    public void updateStat(String stat, Integer bonus){
+        if(stats.get(stat) == 20)
+            System.out.println("Stat (" + stat + ") is already maxed");
+        stats.put(stat, Math.min(stats.get(stat) + bonus, 20));
+    }
+
+    public void addInit(Integer bonus){
+        this.initiative += bonus;
+    }
+
+    private Boolean checkPreRegs(String feat){
+        IFeats temp;
+        switch (feat){
+            case "Athlete":
+                temp = new Athlete();
+                break;
+
+
+
+            default:
+                temp = new Alert();
+
+
+        }
+        return temp.metPreReqs(this);
+    }
+
 }

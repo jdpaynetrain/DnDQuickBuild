@@ -6,7 +6,7 @@ public interface Races {
             (Arrays.asList("INT", "CHA", "WIS", "DEX", "CON", "STR"));
     Set<String> allLanguages = new HashSet<>
             (Arrays.asList("Common", "Dwarvish", "Elvish", "Giant", "Gnomish",
-                           "Goblin", "IHalfling", "Orc", "Abyssal", "Celestial",
+                           "Goblin", "Halfling", "Orc", "Abyssal", "Celestial",
                            "Draconic", "Deep Speech", "Infernal", "Primordial",
                            "Sylvan", "Undercommon"));
     Set<String> artisansTools = new HashSet<>
