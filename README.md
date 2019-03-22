@@ -32,3 +32,7 @@
     To compile - "make"
     To run - "make run"
     To remove build dir and class file - "make clean"
+    
+    
+### Possible Errors
+If you run into an issue with the wrong javac version or are missing the repository for jdk 11, follow the instructions on these links [itsfoss.com](https://itsfoss.com/add-apt-repository-command-not-found/) [ubuntuhandbook.org](http://ubuntuhandbook.org/index.php/2018/11/how-to-install-oracle-java-11-in-ubuntu-18-04-18-10/)
