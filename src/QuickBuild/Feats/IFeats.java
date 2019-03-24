@@ -15,7 +15,7 @@ public interface IFeats {
                     "Heavily Armored", "Heavy Armor Master", "Inspiring Leader",
                     "Keen Mind", "Lightly Armored", "Linguist", "Lucky",
                     "Mage Slayer", "Magic Initiate", "Martial Adept",
-                    "Medium Armor Master", "Mobile", "ModeratelyArmored",
+                    "Medium Armor Master", "Mobile", "Moderately Armored",
                     "Mounted Combat", "Observant", "Polearm Master",
                     "Resilient", "Ritual Caster", "Savage Attacker",
                     "Sentinel", "Sharpshooter", "Shield Master", "Skilled",

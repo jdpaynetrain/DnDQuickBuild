@@ -218,8 +218,46 @@ public class Character {
         }
     }
 
+
+    public void updateStat(String stat, Integer bonus){
+        stats.put(stat, Math.min(stats.get(stat) + bonus, 20));
+    }
+
+    public Boolean hasProf(String prof){
+        return proficiencies.contains(prof);
+    }
+
+    public Boolean hasLang(String lang){
+        return knownLanguages.contains(lang);
+    }
+
+    public void addInit(Integer bonus){
+        this.initBonus += bonus;
+    }
+
+    public void addProf(String prof){
+        proficiencies.add(prof);
+    }
+
+    public void addHealthBonus(Integer bonus){ this.healthBonus += bonus; }
+
+    public void addLang(String lang){  knownLanguages.add(lang);}
+
+    private Boolean checkPreRegs(String feat){
+        return IFeats.checkPreReqs(this, feat);
+    }
+
+
     public Map<String, Integer> getStats() {
         return stats;
+    }
+
+    public Integer checkStat(String stat){
+        return stats.get(stat);
+    }
+
+    public Set<String> getFeats(){
+        return feats;
     }
 
     public Integer getLevel(){
@@ -248,38 +286,6 @@ public class Character {
 
     public Integer getInitiative(){
         return initiative;
-    }
-
-    public Integer checkStat(String stat){
-        return stats.get(stat);
-    }
-
-    public void updateStat(String stat, Integer bonus){
-        stats.put(stat, Math.min(stats.get(stat) + bonus, 20));
-    }
-
-    public Boolean hasProf(String prof){
-        return proficiencies.contains(prof);
-    }
-
-    public Boolean hasLang(String lang){
-        return knownLanguages.contains(lang);
-    }
-
-    public void addInit(Integer bonus){
-        this.initBonus += bonus;
-    }
-
-    public void addProf(String prof){
-        proficiencies.add(prof);
-    }
-
-    public void addHealthBonus(Integer bonus){ this.healthBonus += bonus; }
-
-    public void addLang(String lang){  knownLanguages.add(lang);}
-
-    private Boolean checkPreRegs(String feat){
-        return IFeats.checkPreReqs(this, feat);
     }
 
     static public void printToUser(String output){

@@ -22,6 +22,7 @@ public class Linguist implements IFeats {
                 Character.printToUser(Races.allLanguages.toString());
                 userLang = sc.nextLine();
             }
+            person.addLang(userLang);
         }
     }
 
