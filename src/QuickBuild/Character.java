@@ -16,6 +16,7 @@ public class Character {
     private String race;
     private Set<String> proficiencies;
     private Set<String> knownLanguages;
+    private Map<Boolean, Integer> darkvision;
     private Integer health;
     private Integer level;
     private Set<String> allScores = new HashSet<>
@@ -23,16 +24,14 @@ public class Character {
     private Set<String> allFeats = new HashSet<>
             (Arrays.asList("Alert", "Athlete"));
     private Integer initiative;
-    private Integer initBonus;
     private Set<String> feats = new HashSet<>();
 
-    // When initialized the class rolls the base stats
+
     public Character(){
         StatRoller roller = new StatRoller();
         baseStats = roller.rollStats();
     }
 
-    // Sets the local class to what is passed in
     private void applyClass(String type){
         if(type.equals("Barbarian"))
             archetype = new Barbarian();
@@ -61,7 +60,6 @@ public class Character {
         stats = archetype.applyModifiers(baseStats);
     }
 
-    // Sets the local race to what is passed in
     private void applyRace(String race){
         if(race.equals("Hill Dwarf"))
             racial = new DwarfHill();
@@ -95,8 +93,6 @@ public class Character {
         racial.applyBuffs(stats);
     }
 
-    // Takes in a race, class and level and rolls the character
-    // Adds stats based on the race and class
     public void rollCharacter(String type, String race, Integer level){
         this.type = type;
         this.race = race;
@@ -124,8 +120,6 @@ public class Character {
         }
     }
 
-    // Adds health based on the character's hit die
-    // Rerolls 1s
     private void addHealth(){
         int temp = archetype.rollHitDie();
         while(temp == 1)
@@ -133,8 +127,6 @@ public class Character {
         health = health + temp + scoreMods.get("CON");
     }
 
-    // Calculates the stat modifiers
-    // mod = RoundDown( (stat - 10) / 2)
     private void calcMods(){
         scoreMods = new LinkedHashMap<>();
         for(Map.Entry<String, Integer> entry: stats.entrySet()){
@@ -146,7 +138,6 @@ public class Character {
     }
 
 
-    // This determines of the user wants to increase ability scores or choose a feat
     private void ASI(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Would you like to increase your ability score (AS)"
@@ -199,7 +190,6 @@ public class Character {
         }
     }
 
-    // This prints the ability scores and the modifiers
     public void printScores(){
         for(Map.Entry<String, Integer> entry: stats.entrySet()){
             System.out.println(entry.getKey() + " -- " + entry.getValue() +
@@ -207,7 +197,6 @@ public class Character {
         }
     }
 
-    // Getters
     public Map<String, Integer> getStats() {
         return stats;
     }
@@ -244,75 +233,31 @@ public class Character {
         return stats.get(stat);
     }
 
-    // This will update stats but only to 20
     public void updateStat(String stat, Integer bonus){
         if(stats.get(stat) == 20)
             System.out.println("Stat (" + stat + ") is already maxed");
         stats.put(stat, Math.min(stats.get(stat) + bonus, 20));
     }
 
-    // This adds an initiative bonus
     public void addInit(Integer bonus){
         this.initiative += bonus;
     }
 
-    // This checks if the character meets the pre-reqs for a feat
     private Boolean checkPreRegs(String feat){
-        return true;
-        /*IFeats temp;
+        IFeats temp;
         switch (feat){
-            case "Defensive Duelist":
+            case "Athlete":
                 temp = new Athlete();
                 break;
 
-            case "Elemental Adept":
-                //temp = new ElementalAdept();
-                break;
 
-            case "Grappler":
-                //temp = new Grappler();
-                break;
-
-            case "Heavily Armored":
-                //temp = new HeavilyArmored();
-                break;
-
-            case "Heavy Armor Master":
-                //temp = new HeavyArmorMaster();
-                break;
-
-            case "Inspiring Leader":
-                //temp = new InspiringLeader();
-                break;
-
-            case "Medium Armor Master":
-                //temp = new MediumArmorMaster();
-                break;
-
-            case "Moderately Armored":
-                //temp = new ModeratelyArmored();
-                break;
-
-            case "Ritual Caster":
-                //temp = new RitualCaster();
-                break;
-
-            case "Skulker":
-                //temp = new Skulker();
-                break;
-
-            case "Spell Sniper":
-                //temp = new SpellSniper();
-                break;
-
-            case "War Caster":
-                // temp = new WarCaster();
-                break;
 
             default:
-                return true;
+                temp = new Alert();
+
+
         }
-        return temp.metPreReqs(this); */
+        return temp.metPreReqs(this);
     }
 
 }
