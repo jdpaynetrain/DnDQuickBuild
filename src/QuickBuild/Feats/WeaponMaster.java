@@ -1,12 +1,13 @@
 package QuickBuild.Feats;
 import QuickBuild.Character;
+
 import java.util.Scanner;
 
-public class Athlete implements IFeats {
+public class WeaponMaster implements IFeats {
 
     public void updateStats(Character person){
+        Scanner sc = new Scanner(System.in);
         if(person.checkStat("STR") != 20 || person.checkStat("DEX") != 20){
-            Scanner sc = new Scanner(System.in);
             Character.printToUser("You have chosen the athlete feat.");
             Character.printToUser("Choose STR or DEX to increase");
             person.printScores();
@@ -28,8 +29,14 @@ public class Athlete implements IFeats {
             }
             person.updateStat(temp, 1);
         }
-        else{
-            Character.printToUser("STR and DEX are both 20. No stats to boost.");
+        for(int i = 0; i < 4; i++){
+            Character.printToUser("Choose 4 weapons to have proficiency with");
+            String userWeapon = sc.nextLine();
+            while(person.hasProf(userWeapon)){
+                Character.printToUser("You already have proficiency");
+                userWeapon = sc.nextLine();
+            }
+            person.addProf(userWeapon);
         }
     }
 

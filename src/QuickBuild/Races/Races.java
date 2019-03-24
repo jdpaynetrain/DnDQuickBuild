@@ -15,5 +15,4 @@ public interface Races {
     void applyBuffs(Map<String, Integer> stats);
     Set<String> racialLanguages();
     Set<String> racialProfs();
-    //Map<Boolean, Integer> racialDarkvision();
 }

@@ -2,8 +2,7 @@ package QuickBuild.Feats;
 import QuickBuild.Character;
 import java.util.Scanner;
 
-public class Athlete implements IFeats {
-
+public class ModeratelyArmored implements IFeats {
     public void updateStats(Character person){
         if(person.checkStat("STR") != 20 || person.checkStat("DEX") != 20){
             Scanner sc = new Scanner(System.in);
@@ -31,6 +30,9 @@ public class Athlete implements IFeats {
         else{
             Character.printToUser("STR and DEX are both 20. No stats to boost.");
         }
+
+        person.addProf("Medium Armor");
+        person.addProf("Shields");
     }
 
     public Boolean metPreReqs(Character person){

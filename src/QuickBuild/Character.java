@@ -19,18 +19,19 @@ public class Character {
     private Map<Boolean, Integer> darkvision;
     private Integer health;
     private Integer level;
-    private Set<String> allScores = new HashSet<>
+    static public Set<String> allScores = new HashSet<>
             (Arrays.asList("STR", "DEX", "CON", "INT", "WIS", "CHA"));
-
     private Integer initiative;
     private Integer initBonus;
     private Set<String> feats;
-    private Set<IFeats> userFeats;
+    private List<IFeats> userFeats;
+    private Integer healthBonus;
 
     public Character(){
         feats = new HashSet<>();
-        userFeats = new HashSet<>();
+        userFeats = new Vector<>();
         initBonus = 0;
+        healthBonus = 0;
 
         StatRoller roller = new StatRoller();
         baseStats = roller.rollStats();
@@ -112,6 +113,7 @@ public class Character {
             for(int i = 2; i <= level; i++) {
                 if(i == 4 || i == 8 || i == 12 || i == 16 || i == 19) {
                     this.specialLevel();
+                    this.applyFeat(userFeats.get(userFeats.size() - 1));
                     this.calcMods();
                 }
                 this.level = i;
@@ -124,7 +126,11 @@ public class Character {
         int temp = archetype.rollHitDie();
         while(temp == 1)
             temp = archetype.rollHitDie();
-        health = health + temp + scoreMods.get("CON");
+        health = health + temp + scoreMods.get("CON") + healthBonus;
+    }
+
+    public void addHealth(Integer health){
+        this.health += health;
     }
 
     private void calcMods(){
@@ -180,29 +186,24 @@ public class Character {
     private void addFeat(){
         Scanner sc = new Scanner(System.in);
         Character.printToUser("Choose a feat");
-        for(String aFeat: IFeats.allFeats)
-            Character.printToUser(aFeat);
+        Character.printToUser(IFeats.allFeats.toString());
         String userFeat = sc.nextLine();
-        while(!IFeats.allFeats.contains(userFeat) || feats.contains(userFeat) /*|| !checkPreRegs(userFeat)*/){
+        while(!IFeats.allFeats.contains(userFeat) || feats.contains(userFeat) || !checkPreRegs(userFeat)){
             if(feats.contains(userFeat)){
                 Character.printToUser("You already have this feat. Chose another");
-                for(String aFeat: IFeats.allFeats)
-                    Character.printToUser(aFeat);
+                Character.printToUser(IFeats.allFeats.toString());
             }
             else if(!IFeats.allFeats.contains(userFeat)){
                 Character.printToUser("That is not an option. Chose another");
-                for(String aFeat: IFeats.allFeats)
-                    Character.printToUser(aFeat);
+                Character.printToUser(IFeats.allFeats.toString());
             }
             else{
                 Character.printToUser("You don't meet the pre-reqs. Chose another");
-                for(String aFeat: IFeats.allFeats)
-                    Character.printToUser(aFeat);
+                Character.printToUser(IFeats.allFeats.toString());
             }
             userFeat = sc.nextLine();
         }
         userFeats.add(IFeats.addFeat(userFeat));
-        this.applyFeat(IFeats.addFeat(userFeat));
         feats.add(userFeat);
     }
 
@@ -212,7 +213,7 @@ public class Character {
 
     public void printScores(){
         for(Map.Entry<String, Integer> entry: stats.entrySet()){
-            System.out.println(entry.getKey() + " -- " + entry.getValue() +
+            Character.printToUser(entry.getKey() + " -- " + entry.getValue() +
                     "(" + scoreMods.get(entry.getKey()) + ")");
         }
     }
@@ -254,9 +255,15 @@ public class Character {
     }
 
     public void updateStat(String stat, Integer bonus){
-        if(stats.get(stat) == 20)
-            Character.printToUser("Stat (" + stat + ") is already maxed\n");
         stats.put(stat, Math.min(stats.get(stat) + bonus, 20));
+    }
+
+    public Boolean hasProf(String prof){
+        return proficiencies.contains(prof);
+    }
+
+    public Boolean hasLang(String lang){
+        return knownLanguages.contains(lang);
     }
 
     public void addInit(Integer bonus){
@@ -266,6 +273,10 @@ public class Character {
     public void addProf(String prof){
         proficiencies.add(prof);
     }
+
+    public void addHealthBonus(Integer bonus){ this.healthBonus += bonus; }
+
+    public void addLang(String lang){  knownLanguages.add(lang);}
 
     private Boolean checkPreRegs(String feat){
         return IFeats.checkPreReqs(this, feat);

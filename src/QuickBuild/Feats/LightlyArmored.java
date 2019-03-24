@@ -2,12 +2,12 @@ package QuickBuild.Feats;
 import QuickBuild.Character;
 import java.util.Scanner;
 
-public class Athlete implements IFeats {
+public class LightlyArmored implements IFeats {
 
     public void updateStats(Character person){
         if(person.checkStat("STR") != 20 || person.checkStat("DEX") != 20){
             Scanner sc = new Scanner(System.in);
-            Character.printToUser("You have chosen the athlete feat.");
+            Character.printToUser("You have chosen the Lightly Armored feat.");
             Character.printToUser("Choose STR or DEX to increase");
             person.printScores();
             String temp = sc.nextLine();
@@ -31,6 +31,8 @@ public class Athlete implements IFeats {
         else{
             Character.printToUser("STR and DEX are both 20. No stats to boost.");
         }
+
+        person.addProf("Light Armor");
     }
 
     public Boolean metPreReqs(Character person){

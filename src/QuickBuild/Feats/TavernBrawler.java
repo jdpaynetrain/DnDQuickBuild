@@ -2,35 +2,37 @@ package QuickBuild.Feats;
 import QuickBuild.Character;
 import java.util.Scanner;
 
-public class Athlete implements IFeats {
+public class TavernBrawler implements IFeats {
 
     public void updateStats(Character person){
-        if(person.checkStat("STR") != 20 || person.checkStat("DEX") != 20){
+        if(person.checkStat("STR") != 20 || person.checkStat("CON") != 20){
             Scanner sc = new Scanner(System.in);
             Character.printToUser("You have chosen the athlete feat.");
-            Character.printToUser("Choose STR or DEX to increase");
+            Character.printToUser("Choose STR or CON to increase");
             person.printScores();
             String temp = sc.nextLine();
-            while((!temp.equals("DEX") && !temp.equals("STR")) ||
+            while((!temp.equals("CON") && !temp.equals("STR")) ||
                     person.checkStat(temp) == 20){
-                if(temp.equals("DEX")) {
-                    Character.printToUser("DEX is already 20. Boosting STR");
+                if(temp.equals("CON")) {
+                    Character.printToUser("CON is already 20. Boosting STR");
                     temp = "STR";
                 }
                 else if(temp.equals("STR")){
-                    Character.printToUser("STR is already 20. Boosting DEX");
-                    temp = "DEX";
+                    Character.printToUser("STR is already 20. Boosting CON");
+                    temp = "CON";
                 }
                 else{
-                    Character.printToUser("Options are DEX or STR");
+                    Character.printToUser("Options are CON or STR");
                     temp = sc.nextLine();
                 }
             }
             person.updateStat(temp, 1);
         }
         else{
-            Character.printToUser("STR and DEX are both 20. No stats to boost.");
+            Character.printToUser("STR and CON are both 20. No stats to boost.");
         }
+        person.addProf("Improvised Weapons");
+        person.addProf("Unarmed Strikes");
     }
 
     public Boolean metPreReqs(Character person){
