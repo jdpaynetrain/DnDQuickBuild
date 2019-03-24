@@ -26,7 +26,6 @@ public class Character {
     private Integer initiative;
     private Set<String> feats = new HashSet<>();
 
-
     public Character(){
         StatRoller roller = new StatRoller();
         baseStats = roller.rollStats();
