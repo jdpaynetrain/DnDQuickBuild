@@ -21,12 +21,17 @@ public class Character {
     private Integer level;
     private Set<String> allScores = new HashSet<>
             (Arrays.asList("STR", "DEX", "CON", "INT", "WIS", "CHA"));
-    private Set<String> allFeats = new HashSet<>
-            (Arrays.asList("Alert", "Athlete"));
+
     private Integer initiative;
-    private Set<String> feats = new HashSet<>();
+    private Integer initBonus;
+    private Set<String> feats;
+    private Set<IFeats> userFeats;
 
     public Character(){
+        feats = new HashSet<>();
+        userFeats = new HashSet<>();
+        initBonus = 0;
+
         StatRoller roller = new StatRoller();
         baseStats = roller.rollStats();
     }
@@ -106,16 +111,12 @@ public class Character {
         if(level > 1){
             for(int i = 2; i <= level; i++) {
                 if(i == 4 || i == 8 || i == 12 || i == 16 || i == 19) {
-                    this.ASI();
+                    this.specialLevel();
                     this.calcMods();
                 }
                 this.level = i;
                 this.addHealth();
             }
-        }
-        IFeats temp = new Empty();
-        for(String entry: feats){
-            temp.addFeat(this, entry);
         }
     }
 
@@ -133,60 +134,80 @@ public class Character {
                             Math.floorDiv(entry.getValue() - 10, 2));
 
         }
-        this.initiative = scoreMods.get("DEX");
+        this.initiative = scoreMods.get("DEX") + initBonus;
     }
 
 
-    private void ASI(){
+    private void specialLevel(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Would you like to increase your ability score (AS)"
+        Character.printToUser("Would you like to increase your ability score (AS)"
                 + " or gain a feat (feat)?");
         String userChoice = sc.nextLine();
         while(!userChoice.equals("AS") && !userChoice.equals("feat")){
-            System.out.println("Choice must be AS or feat");
+            Character.printToUser("Choice must be AS or feat");
             userChoice = sc.nextLine();
         }
         if(userChoice.equals("AS")){
-            for(int i = 0; i < 2; i++){
-                System.out.println("Choose an ability to increase:");
-                this.printScores();
-                String userScore = sc.nextLine();
-                while(!allScores.contains(userScore) ||
-                        stats.get(userScore) == 20){
-                    if(allScores.contains(userScore)){
-                        System.out.println("Scores can only be increased to 20."
-                                + " Choose another.");
-                    }
-                    else{
-                        System.out.println("That isn't a choice");
-                        System.out.println(allScores);
-                    }
-                    userScore = sc.nextLine();
-                }
-                stats.put(userScore, stats.get(userScore) + 1);
-            }
+            this.ASI();
         }
         else{
-            System.out.println("Choose a feat");
-            System.out.println(allFeats);
-            String userFeat = sc.nextLine();
-            while(!allFeats.contains(userFeat) || feats.contains(userFeat) || !checkPreRegs(userFeat)){
-                if(feats.contains(userFeat)){
-                    System.out.println("You already have this feat. Chose another");
-                    System.out.println(allFeats);
-                }
-                else if(!allFeats.contains(userFeat)){
-                    System.out.println("That is not an option. Chose another");
-                    System.out.println(allFeats);
+            this.addFeat();
+        }
+    }
+
+    private void ASI(){
+        Scanner sc = new Scanner(System.in);
+        for(int i = 0; i < 2; i++){
+            Character.printToUser("Choose an ability to increase:");
+            this.printScores();
+            String userScore = sc.nextLine();
+            while(!allScores.contains(userScore) ||
+                    stats.get(userScore) == 20){
+                if(allScores.contains(userScore)){
+                    Character.printToUser("Scores can only be increased to 20."
+                            + " Choose another.");
                 }
                 else{
-                    System.out.println("You don't meet the pre-reqs. Chose another");
-                    System.out.println(allFeats);
+                    Character.printToUser("That isn't a choice");
                 }
-                userFeat = sc.nextLine();
+                this.printScores();
+                userScore = sc.nextLine();
             }
-            feats.add(userFeat);
+            stats.put(userScore, stats.get(userScore) + 1);
         }
+    }
+
+    private void addFeat(){
+        Scanner sc = new Scanner(System.in);
+        Character.printToUser("Choose a feat");
+        for(String aFeat: IFeats.allFeats)
+            Character.printToUser(aFeat);
+        String userFeat = sc.nextLine();
+        while(!IFeats.allFeats.contains(userFeat) || feats.contains(userFeat) /*|| !checkPreRegs(userFeat)*/){
+            if(feats.contains(userFeat)){
+                Character.printToUser("You already have this feat. Chose another");
+                for(String aFeat: IFeats.allFeats)
+                    Character.printToUser(aFeat);
+            }
+            else if(!IFeats.allFeats.contains(userFeat)){
+                Character.printToUser("That is not an option. Chose another");
+                for(String aFeat: IFeats.allFeats)
+                    Character.printToUser(aFeat);
+            }
+            else{
+                Character.printToUser("You don't meet the pre-reqs. Chose another");
+                for(String aFeat: IFeats.allFeats)
+                    Character.printToUser(aFeat);
+            }
+            userFeat = sc.nextLine();
+        }
+        userFeats.add(IFeats.addFeat(userFeat));
+        this.applyFeat(IFeats.addFeat(userFeat));
+        feats.add(userFeat);
+    }
+
+    private void applyFeat(IFeats aFeat){
+        aFeat.updateStats(this);
     }
 
     public void printScores(){
@@ -234,29 +255,24 @@ public class Character {
 
     public void updateStat(String stat, Integer bonus){
         if(stats.get(stat) == 20)
-            System.out.println("Stat (" + stat + ") is already maxed");
+            Character.printToUser("Stat (" + stat + ") is already maxed\n");
         stats.put(stat, Math.min(stats.get(stat) + bonus, 20));
     }
 
     public void addInit(Integer bonus){
-        this.initiative += bonus;
+        this.initBonus += bonus;
+    }
+
+    public void addProf(String prof){
+        proficiencies.add(prof);
     }
 
     private Boolean checkPreRegs(String feat){
-        IFeats temp;
-        switch (feat){
-            case "Athlete":
-                temp = new Athlete();
-                break;
+        return IFeats.checkPreReqs(this, feat);
+    }
 
-
-
-            default:
-                temp = new Alert();
-
-
-        }
-        return temp.metPreReqs(this);
+    static public void printToUser(String output){
+        System.out.println(output);
     }
 
 }
