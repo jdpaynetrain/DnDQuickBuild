@@ -24,12 +24,10 @@ public class Character {
     private Integer initiative;
     private Integer initBonus;
     private Set<String> feats;
-    private List<IFeats> userFeats;
     private Integer healthBonus;
 
     public Character(){
         feats = new HashSet<>();
-        userFeats = new Vector<>();
         initBonus = 0;
         healthBonus = 0;
 
@@ -113,7 +111,6 @@ public class Character {
             for(int i = 2; i <= level; i++) {
                 if(i == 4 || i == 8 || i == 12 || i == 16 || i == 19) {
                     this.specialLevel();
-                    this.applyFeat(userFeats.get(userFeats.size() - 1));
                     this.calcMods();
                 }
                 this.level = i;
@@ -203,8 +200,8 @@ public class Character {
             }
             userFeat = sc.nextLine();
         }
-        userFeats.add(IFeats.addFeat(userFeat));
         feats.add(userFeat);
+        this.applyFeat(IFeats.addFeat(userFeat));
     }
 
     private void applyFeat(IFeats aFeat){

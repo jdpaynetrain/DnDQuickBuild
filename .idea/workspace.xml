@@ -4,9 +4,6 @@
     <list default="true" id="d2311d02-0068-4da9-8044-3c7571d72f59" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/QuickBuild/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QuickBuild/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/QuickBuild/Feats/IFeats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QuickBuild/Feats/IFeats.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/QuickBuild/Feats/Linguist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QuickBuild/Feats/Linguist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/QuickBuild/QuickBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QuickBuild/QuickBuilder.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,21 +14,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/QuickBuild/QuickBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
+            <state relative-caret-position="850">
               <caret line="50" column="73" lean-forward="true" selection-start-line="50" selection-start-column="73" selection-end-line="50" selection-end-column="73" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/QuickBuild/Character.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="501">
-              <caret line="258" column="34" lean-forward="true" selection-start-line="258" selection-start-column="34" selection-end-line="258" selection-end-column="34" />
+            <state relative-caret-position="274">
+              <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
               <folding>
+                <element signature="e#8528#8529#0" expanded="true" />
                 <element signature="e#8555#8556#0" expanded="true" />
               </folding>
             </state>
@@ -110,8 +108,8 @@
         <option value="$PROJECT_DIR$/src/QuickBuild/Feats/Alert.java" />
         <option value="$PROJECT_DIR$/src/QuickBuild/Feats/IFeats.java" />
         <option value="$PROJECT_DIR$/src/QuickBuild/Feats/Linguist.java" />
-        <option value="$PROJECT_DIR$/src/QuickBuild/Character.java" />
         <option value="$PROJECT_DIR$/src/QuickBuild/QuickBuilder.java" />
+        <option value="$PROJECT_DIR$/src/QuickBuild/Character.java" />
       </list>
     </option>
   </component>
@@ -156,7 +154,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553464123165" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553464536505" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -205,7 +203,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.8147346" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -683,20 +681,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/QuickBuild/Character.java">
+    <entry file="file://$PROJECT_DIR$/src/QuickBuild/QuickBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="258" column="34" lean-forward="true" selection-start-line="258" selection-start-column="34" selection-end-line="258" selection-end-column="34" />
-          <folding>
-            <element signature="e#8555#8556#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="850">
+          <caret line="50" column="73" lean-forward="true" selection-start-line="50" selection-start-column="73" selection-end-line="50" selection-end-column="73" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/QuickBuild/QuickBuilder.java">
+    <entry file="file://$PROJECT_DIR$/src/QuickBuild/Character.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="50" column="73" lean-forward="true" selection-start-line="50" selection-start-column="73" selection-end-line="50" selection-end-column="73" />
+        <state relative-caret-position="274">
+          <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+          <folding>
+            <element signature="e#8528#8529#0" expanded="true" />
+            <element signature="e#8555#8556#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
