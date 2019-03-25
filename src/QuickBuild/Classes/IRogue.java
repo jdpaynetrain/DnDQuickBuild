@@ -10,5 +10,5 @@ public interface IRogue extends Classes {
     Set<String> rogueProfs = new HashSet<>
             (Arrays.asList("Light Armor", "Simple Weapons",
                     "Hand Crossbows", "Longswords", "Rapiers", "Shortswords",
-                    "Thieve's Tools"));
+                    "Thieves' Tools"));
 }
