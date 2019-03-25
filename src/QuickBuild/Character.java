@@ -25,7 +25,6 @@ public class Character {
     private Integer initBonus;
     private Set<String> feats;
     private Integer healthBonus;
-    private int okay;
 
     public Character(){
         feats = new HashSet<>();
