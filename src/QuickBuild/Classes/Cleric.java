@@ -1,6 +1,7 @@
 package QuickBuild.Classes;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
+import QuickBuild.Character;
 
 public class Cleric implements ICleric {
 
@@ -22,17 +23,17 @@ public class Cleric implements ICleric {
         Scanner sc = new Scanner(System.in);
 
         for(int i = 0; i < 2; i++) {
-            System.out.println("Choose a skill to have proficiency in:");
-            System.out.println(clericSkills);
+            Character.printToUser("Choose a skill to have proficiency in:");
+            Character.printToUser(clericSkills.toString());
             String userProf = sc.nextLine();
             while (!clericSkills.contains(userProf) || profs.contains(userProf)) {
                 if (profs.contains(userProf)) {
-                    System.out.println("You already have proficiency. Choose " +
+                    Character.printToUser("You already have proficiency. Choose " +
                             "another");
-                    System.out.println(clericSkills);
+                    Character.printToUser(clericSkills.toString());
                 } else {
-                    System.out.println("That is not an option. Choose another");
-                    System.out.println(clericSkills);
+                    Character.printToUser("That is not an option. Choose another");
+                    Character.printToUser(clericSkills.toString());
                 }
                 userProf = sc.nextLine();
             }

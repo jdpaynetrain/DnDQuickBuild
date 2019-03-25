@@ -1,6 +1,7 @@
 package QuickBuild.Classes;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
+import QuickBuild.Character;
 
 public class Rogue implements IRogue {
     private Map<String, Integer> scores = new LinkedHashMap<>();
@@ -20,17 +21,17 @@ public class Rogue implements IRogue {
         profs.addAll(rogueProfs);
         Scanner sc = new Scanner(System.in);
         for(int i = 0; i < 4; i++) {
-            System.out.println("Choose a skill to have proficiency in:");
-            System.out.println(rogueSkills);
+            Character.printToUser("Choose a skill to have proficiency in:");
+            Character.printToUser(rogueSkills.toString());
             String userProf = sc.nextLine();
             while (!rogueSkills.contains(userProf) || profs.contains(userProf)) {
                 if (profs.contains(userProf)) {
-                    System.out.println("You already have proficiency. Choose " +
+                    Character.printToUser("You already have proficiency. Choose " +
                             "another");
-                    System.out.println(rogueSkills);
+                    Character.printToUser(rogueSkills.toString());
                 } else {
-                    System.out.println("That is not an option. Choose another");
-                    System.out.println(rogueSkills);
+                    Character.printToUser("That is not an option. Choose another");
+                    Character.printToUser(rogueSkills.toString());
                 }
                 userProf = sc.nextLine();
             }

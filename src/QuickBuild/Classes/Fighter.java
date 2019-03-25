@@ -1,6 +1,7 @@
 package QuickBuild.Classes;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
+import QuickBuild.Character;
 
 public class Fighter implements IFighter {
 
@@ -22,17 +23,17 @@ public class Fighter implements IFighter {
         Scanner sc = new Scanner(System.in);
 
         for(int i = 0; i < 2; i++) {
-            System.out.println("Choose a skill to have proficiency in:");
-            System.out.println(fighterSkills);
+            Character.printToUser("Choose a skill to have proficiency in:");
+            Character.printToUser(fighterSkills.toString());
             String userProf = sc.nextLine();
             while (!fighterSkills.contains(userProf) || profs.contains(userProf)) {
                 if (profs.contains(userProf)) {
-                    System.out.println("You already have proficiency. Choose " +
+                    Character.printToUser("You already have proficiency. Choose " +
                             "another");
-                    System.out.println(fighterSkills);
+                    Character.printToUser(fighterSkills.toString());
                 } else {
-                    System.out.println("That is not an option. Choose another");
-                    System.out.println(fighterSkills);
+                    Character.printToUser("That is not an option. Choose another");
+                    Character.printToUser(fighterSkills.toString());
                 }
                 userProf = sc.nextLine();
             }

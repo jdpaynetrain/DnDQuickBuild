@@ -1,6 +1,7 @@
 package QuickBuild.Classes;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
+import QuickBuild.Character;
 
 public class Paladin implements IPaladin {
     private Map<String, Integer> scores = new LinkedHashMap<>();
@@ -20,17 +21,17 @@ public class Paladin implements IPaladin {
         profs.addAll(paladinProfs);
         Scanner sc = new Scanner(System.in);
         for(int i = 0; i < 2; i++) {
-            System.out.println("Choose a skill to have proficiency in:");
-            System.out.println(paladinSkills);
+            Character.printToUser("Choose a skill to have proficiency in:");
+            Character.printToUser(paladinSkills.toString());
             String userProf = sc.nextLine();
             while (!paladinSkills.contains(userProf) || profs.contains(userProf)) {
                 if (profs.contains(userProf)) {
-                    System.out.println("You already have proficiency. Choose " +
+                    Character.printToUser("You already have proficiency. Choose " +
                             "another");
-                    System.out.println(paladinSkills);
+                    Character.printToUser(paladinSkills.toString());
                 } else {
-                    System.out.println("That is not an option. Choose another");
-                    System.out.println(paladinSkills);
+                    Character.printToUser("That is not an option. Choose another");
+                    Character.printToUser(paladinSkills.toString());
                 }
                 userProf = sc.nextLine();
             }

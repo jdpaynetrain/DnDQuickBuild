@@ -23,17 +23,17 @@ public class Barbarian implements IBarbarian {
         profs.addAll(barbProfs);
         Scanner sc = new Scanner(System.in);
         for(int i = 0; i < 2; i++) {
-            System.out.println("Choose a skill to have proficiency in:");
-            System.out.println(barbSkills);
+            Character.printToUser("Choose a skill to have proficiency in:");
+            Character.printToUser(barbSkills.toString());
             String userProf = sc.nextLine();
             while (!barbSkills.contains(userProf) || profs.contains(userProf)) {
                 if (profs.contains(userProf)) {
-                    System.out.println("You already have proficiency. Choose " +
+                    Character.printToUser("You already have proficiency. Choose " +
                             "another");
-                    System.out.println(barbSkills);
+                    Character.printToUser(barbSkills.toString());
                 } else {
-                    System.out.println("That is not an option. Choose another");
-                    System.out.println(barbSkills);
+                    Character.printToUser("That is not an option. Choose another");
+                    Character.printToUser(barbSkills.toString());
                 }
                 userProf = sc.nextLine();
             }
