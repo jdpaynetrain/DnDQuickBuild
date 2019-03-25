@@ -177,7 +177,7 @@ public class Character {
                 this.printScores();
                 userScore = sc.nextLine();
             }
-            stats.put(userScore, stats.get(userScore) + 1);
+            this.updateStat(userScore, 1);
         }
     }
 
