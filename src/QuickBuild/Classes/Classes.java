@@ -3,6 +3,11 @@ package QuickBuild.Classes;
 import java.util.*;
 
 public interface Classes {
+    
+    Set<String> allClasses = new HashSet<>
+            (Arrays.asList("Barbarian", "Bard", "Cleric", "Druid", "Fighter",
+                    "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer",
+                    "Warlock", "Wizard"));
     Set<String> allSkills = new HashSet<>
             (Arrays.asList("Acrobatics", "Animal Handling", "Arcana",
                     "Athletics", "Deception", "History", "Insight",

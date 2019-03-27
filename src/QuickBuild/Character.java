@@ -25,13 +25,13 @@ public class Character {
     private Integer initBonus;
     private Set<String> feats;
     private Integer healthBonus;
-    private int ok;
 
     public Character(){
         feats = new HashSet<>();
         initBonus = 0;
         healthBonus = 0;
 
+        // Base stats will be rolled right when the character is declared
         StatRoller roller = new StatRoller();
         baseStats = roller.rollStats();
     }
@@ -108,6 +108,10 @@ public class Character {
         this.proficiencies = racial.racialProfs();
         archetype.classProfs(proficiencies);
         health = archetype.baseHealth() + scoreMods.get("CON");
+        /*
+         * Levels 4, 8, 12, 16, and 19 all have the choice of increasing two
+         * ability scores or choosing a feat. At every level they gain health
+         */
         if(level > 1){
             for(int i = 2; i <= level; i++) {
                 if(i == 4 || i == 8 || i == 12 || i == 16 || i == 19) {
@@ -120,6 +124,7 @@ public class Character {
         }
     }
 
+    // Every class has their own hit die and this re-rolls 1s
     private void addHealth(){
         int temp = archetype.rollHitDie();
         while(temp == 1)
@@ -131,6 +136,7 @@ public class Character {
         this.health += health;
     }
 
+    // Mods are based off the (ability score - 10) / 2
     private void calcMods(){
         scoreMods = new LinkedHashMap<>();
         for(Map.Entry<String, Integer> entry: stats.entrySet()){
@@ -138,10 +144,12 @@ public class Character {
                             Math.floorDiv(entry.getValue() - 10, 2));
 
         }
+        // Initiative is based on the dex mod and bonuses if they exist
         this.initiative = scoreMods.get("DEX") + initBonus;
     }
 
-
+    // Special levels are 4, 8, 12, 16, and 19 and this gets the user's choice
+    // For those levels
     private void specialLevel(){
         Scanner sc = new Scanner(System.in);
         Character.printToUser("Would you like to increase your ability score (AS)"
@@ -159,6 +167,7 @@ public class Character {
         }
     }
 
+    // This gets the user's choice for scores to increase and increases them
     private void ASI(){
         Scanner sc = new Scanner(System.in);
         for(int i = 0; i < 2; i++){
@@ -181,11 +190,14 @@ public class Character {
         }
     }
 
+    // Get's the user's feat choice and adds it
     private void addFeat(){
         Scanner sc = new Scanner(System.in);
         Character.printToUser("Choose a feat");
         Character.printToUser(IFeats.allFeats.toString());
         String userFeat = sc.nextLine();
+        // We want to ensure the user doesn't have the feat, the choice is
+        // allowed and they meet the prereqs for the feats
         while(!IFeats.allFeats.contains(userFeat) || feats.contains(userFeat) || !checkPreRegs(userFeat)){
             if(feats.contains(userFeat)){
                 Character.printToUser("You already have this feat. Chose another");
@@ -216,7 +228,11 @@ public class Character {
         }
     }
 
+    private Boolean checkPreRegs(String feat){
+        return IFeats.checkPreReqs(this, feat);
+    }
 
+    // Adders/getters/setters
     public void updateStat(String stat, Integer bonus){
         stats.put(stat, Math.min(stats.get(stat) + bonus, 20));
     }
@@ -240,11 +256,6 @@ public class Character {
     public void addHealthBonus(Integer bonus){ this.healthBonus += bonus; }
 
     public void addLang(String lang){  knownLanguages.add(lang);}
-
-    private Boolean checkPreRegs(String feat){
-        return IFeats.checkPreReqs(this, feat);
-    }
-
 
     public Map<String, Integer> getStats() {
         return stats;
