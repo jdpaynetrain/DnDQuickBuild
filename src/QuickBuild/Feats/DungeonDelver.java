@@ -9,4 +9,8 @@ public class DungeonDelver implements IFeats {
     public Boolean metPreReqs(Character person){
         return true;
     }
+
+    static public String featDescription(){
+
+    }
 }
