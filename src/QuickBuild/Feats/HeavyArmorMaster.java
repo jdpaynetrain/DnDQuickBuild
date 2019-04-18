@@ -9,4 +9,5 @@ public class HeavyArmorMaster implements IFeats {
     public Boolean metPreReqs(Character person){
         return person.hasProf("Heavy Armor") || person.hasProf("All Armor");
     }
+
 }

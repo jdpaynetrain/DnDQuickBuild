@@ -2,6 +2,11 @@ package QuickBuild.Races;
 import java.util.*;
 
 public interface Races {
+    Set<String> allRaces = new HashSet<>
+            (Arrays.asList("Hill Dwarf", "Mountain Dwarf", "High Elf",
+                    "Wood Elf", "Dark Elf", "Lightfoot Halfling",
+                    "Stout Halfling", "Human", "Dragonborn", "Forest Gnome",
+                    "Rock Gnome", "Half Elf", "Half Orc", "Tiefling"));
     Set<String> allAttributes = new HashSet<>
             (Arrays.asList("INT", "CHA", "WIS", "DEX", "CON", "STR"));
     Set<String> allLanguages = new HashSet<>

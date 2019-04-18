@@ -1,6 +1,7 @@
 package QuickBuild.Races;
 
 import java.util.*;
+import QuickBuild.Character;
 
 public class DwarfMountain implements Races {
 
@@ -16,12 +17,12 @@ public class DwarfMountain implements Races {
         Scanner sc = new Scanner(System.in);
         Set<String> profs = new HashSet<>(Arrays.asList("Battleaxe", "Handaxe",
                 "Throwing Hammer", "Warhammer", "Light Armor", "Heavy Armor"));
-        System.out.println("Choose an artisan tool to have proficiency with");
-        System.out.println(artisansTools);
+        Character.printToUser("Choose an artisan tool to have proficiency with");
+        Character.printToUser(artisansTools.toString());
         String userTool = sc.nextLine();
         while(!artisansTools.contains(userTool)){
-            System.out.println("Tool must be one of the following");
-            System.out.println(artisansTools);
+            Character.printToUser("Tool must be one of the following");
+            Character.printToUser(artisansTools.toString());
             userTool = sc.nextLine();
         }
         profs.add(userTool);

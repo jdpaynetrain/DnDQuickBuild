@@ -1,39 +1,35 @@
 package QuickBuild;
 import java.util.*;
+import QuickBuild.Classes.Classes;
+import QuickBuild.Races.Races;
 
 public class QuickBuilder {
-    private static final Set<String> allClasses = new HashSet<>
-            (Arrays.asList("Barbarian", "Bard", "Cleric", "Druid", "Fighter",
-                    "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer",
-                    "Warlock", "Wizard"));
-    private static final Set<String> allRaces = new HashSet<>
-            (Arrays.asList("Hill Dwarf", "Mountain Dwarf", "High Elf",
-                    "Wood Elf", "Dark Elf", "Lightfoot Halfling",
-                    "Stout Halfling", "Human", "Dragonborn", "Forest Gnome",
-                    "Rock Gnome", "Half Elf", "Half Orc", "Tiefling"));
 
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         Character person = new Character();
 
+        // Get the user's race
         Character.printToUser("What race would you like to play? Options are: ");
-        Character.printToUser(allRaces.toString());
+        Character.printToUser(Races.allRaces.toString());
         String userRace = sc.nextLine();
-        while(!allRaces.contains(userRace)){
+        while(!Races.allRaces.contains(userRace)){
             Character.printToUser("Race must be one of the following:");
-            Character.printToUser(allRaces.toString());
+            Character.printToUser(Races.allRaces.toString());
             userRace = sc.nextLine();
         }
 
+        // Get the user's class
         Character.printToUser("What class would you like to play? Options are: ");
-        Character.printToUser(allClasses.toString());
+        Character.printToUser(Classes.allClasses.toString());
         String userClass = sc.nextLine();
-        while(!allClasses.contains(userClass)){
+        while(!Classes.allClasses.contains(userClass)){
             Character.printToUser("Class must be one of the following:");
-            Character.printToUser(allClasses.toString());
+            Character.printToUser(Classes.allClasses.toString());
             userClass = sc.nextLine();
         }
 
+        // Get the user's level
         Character.printToUser("What level character do you want? (1-20)");
         int level = sc.nextInt();
         sc.nextLine();
@@ -43,10 +39,12 @@ public class QuickBuilder {
             sc.nextLine();
         }
 
+        // Build the character and print the stats
         person.rollCharacter(userClass, userRace, level);
         printStats(person);
     }
 
+    // Print the final stats for the built character
     public static void printStats(Character person){
         Character.printToUser(person.getRace() + "-" + person.getType());
         Character.printToUser("Level: " + person.getLevel());

@@ -1,5 +1,6 @@
 package QuickBuild.Races;
 import java.util.*;
+import QuickBuild.Character;
 
 public class Human implements Races {
     public void applyBuffs(Map<String, Integer> stats){
@@ -9,22 +10,22 @@ public class Human implements Races {
     public Set<String> racialLanguages(){
         Set<String> lang = new HashSet<>();
         lang.add("Common");
-        System.out.println("Choose a language other than Common to know" +
+        Character.printToUser("Choose a language other than Common to know" +
                            " Options are:");
-        System.out.println(allLanguages);
+        Character.printToUser(allLanguages.toString());
         Scanner sc = new Scanner(System.in);
 
         String userLang = sc.nextLine();
         while(!allLanguages.contains(userLang) || lang.contains(userLang)){
             if(lang.contains(userLang)){
-                System.out.println("You already know that language. " +
+                Character.printToUser("You already know that language. " +
                         "Choose another");
-                System.out.println(allLanguages);
+                Character.printToUser(allLanguages.toString());
             }
             else{
-                System.out.println("That language is not an option. " +
+                Character.printToUser("That language is not an option. " +
                         "Choose another");
-                System.out.println(allLanguages);
+                Character.printToUser(allLanguages.toString());
             }
             userLang = sc.nextLine();
         }

@@ -1,6 +1,7 @@
 package QuickBuild.Classes;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
+import QuickBuild.Character;
 
 public class Warlock implements IWarlock {
     private Map<String, Integer> scores = new LinkedHashMap<>();
@@ -20,17 +21,17 @@ public class Warlock implements IWarlock {
         profs.addAll(warlockProfs);
         Scanner sc = new Scanner(System.in);
         for(int i = 0; i < 2; i++) {
-            System.out.println("Choose a skill to have proficiency in:");
-            System.out.println(warlockSkills);
+            Character.printToUser("Choose a skill to have proficiency in:");
+            Character.printToUser(warlockSkills.toString());
             String userProf = sc.nextLine();
             while (!warlockSkills.contains(userProf) || profs.contains(userProf)) {
                 if (profs.contains(userProf)) {
-                    System.out.println("You already have proficiency. Choose " +
+                    Character.printToUser("You already have proficiency. Choose " +
                             "another");
-                    System.out.println(warlockSkills);
+                    Character.printToUser(warlockSkills.toString());
                 } else {
-                    System.out.println("That is not an option. Choose another");
-                    System.out.println(warlockSkills);
+                    Character.printToUser("That is not an option. Choose another");
+                    Character.printToUser(warlockSkills.toString());
                 }
                 userProf = sc.nextLine();
             }

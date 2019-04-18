@@ -1,4 +1,5 @@
 package QuickBuild.Classes;
+import QuickBuild.Character;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -21,17 +22,17 @@ public class Bard implements IBard {
         Scanner sc = new Scanner(System.in);
 
         for(int i = 0; i < 3; i++) {
-            System.out.println("Choose a skill to have proficiency in:");
-            System.out.println(allSkills);
+            Character.printToUser("Choose a skill to have proficiency in:");
+            Character.printToUser(allSkills.toString());
             String userProf = sc.nextLine();
             while (!allSkills.contains(userProf) || profs.contains(userProf)) {
                 if (profs.contains(userProf)) {
-                    System.out.println("You already have proficiency. Choose " +
+                    Character.printToUser("You already have proficiency. Choose " +
                             "another");
-                    System.out.println(allSkills);
+                    Character.printToUser(allSkills.toString());
                 } else {
-                    System.out.println("That is not an option. Choose another");
-                    System.out.println(allSkills);
+                    Character.printToUser("That is not an option. Choose another");
+                    Character.printToUser(allSkills.toString());
                 }
                 userProf = sc.nextLine();
             }
