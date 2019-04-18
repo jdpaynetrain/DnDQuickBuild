@@ -9,4 +9,8 @@ public class Grappler implements IFeats {
     public void updateStats(Character person){
 
     }
+
+    public String featDescription(){
+        return "";
+    }
 }

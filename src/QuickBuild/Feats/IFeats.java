@@ -116,6 +116,8 @@ public interface IFeats {
         }
     }
 
+    // Feats that have pre-reqs have static metPreReq functions so if it isn't
+    // one of those I just return true
     static Boolean checkPreReqs(Character person, String feat){
         switch(feat){
             case "Defensive Duelist":
