@@ -6,7 +6,12 @@ public class Durable implements IFeats {
         person.updateStat("CON", 1);
     }
 
-    public Boolean metPreReqs(Character person){
-        return true;
+    public String featDescription(){
+        return "Hardy and resilient, you gain the following benefits:\n" +
+                "- Increase your Constitution score by 1, to a maximum of " +
+                "20.\n" +
+                "- When you roll a Hit Die to regain hit points, the " +
+                "minimum number of hit points you regain from the roll " +
+                "equals twice your Constitution modifier (minimum of 2)";
     }
 }

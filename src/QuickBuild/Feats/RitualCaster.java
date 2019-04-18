@@ -6,7 +6,7 @@ public class RitualCaster implements IFeats {
 
     }
 
-    public Boolean metPreReqs(Character person){
+    static public Boolean metPreReqs(Character person){
         return person.checkStat("WIS") >= 13 || person.checkStat("INT") >= 13;
     }
 }

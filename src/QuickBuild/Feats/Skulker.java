@@ -6,7 +6,7 @@ public class Skulker implements IFeats {
 
     }
 
-    public Boolean metPreReqs(Character person){
+    static public Boolean metPreReqs(Character person){
         return person.checkStat("DEX") >= 13;
     }
 }

@@ -6,7 +6,7 @@ public class HeavyArmorMaster implements IFeats {
         person.updateStat("STR", 1);
     }
 
-    public Boolean metPreReqs(Character person){
+    static public Boolean metPreReqs(Character person){
         return person.hasProf("Heavy Armor") || person.hasProf("All Armor");
     }
 

@@ -33,11 +33,7 @@ public class Athlete implements IFeats {
         }
     }
 
-    public Boolean metPreReqs(Character person){
-        return true;
-    }
-
-    static public String featDescription(){
+    public String featDescription(){
         return "You have undergone extensive physical training to gain " +
                 "the following benefits:\n" +
                 "- Increase your Strength or Dexterity by 1, to a " +

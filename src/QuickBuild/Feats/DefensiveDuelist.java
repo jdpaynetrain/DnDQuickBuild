@@ -2,7 +2,7 @@ package QuickBuild.Feats;
 import QuickBuild.Character;
 
 public class DefensiveDuelist implements IFeats {
-    public Boolean metPreReqs(Character person){
+    static public Boolean metPreReqs(Character person){
         return (person.checkStat("DEX") >= 13);
     }
 
@@ -10,7 +10,7 @@ public class DefensiveDuelist implements IFeats {
 
     }
 
-    static public String featDescription(){
+    public String featDescription(){
         return "When you are wielding a finesse weapon with which you are " +
                 "proficient and another creature hits you with a melee " +
                 "attack, you can use your reaction to add your proficiency " +

@@ -35,7 +35,7 @@ public class ModeratelyArmored implements IFeats {
         person.addProf("Shields");
     }
 
-    public Boolean metPreReqs(Character person){
+    static public Boolean metPreReqs(Character person){
         return true;
     }
 }

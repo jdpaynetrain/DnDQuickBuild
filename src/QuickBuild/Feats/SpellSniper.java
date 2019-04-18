@@ -6,7 +6,7 @@ public class SpellSniper implements IFeats {
 
     }
 
-    public Boolean metPreReqs(Character person){
+    static public Boolean metPreReqs(Character person){
         return spellCasters.contains(person.getType());
     }
 }

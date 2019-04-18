@@ -7,11 +7,7 @@ public class Alert implements IFeats {
         person.addInit(5);
     }
 
-    public Boolean metPreReqs(Character person){
-        return true;
-    }
-
-    static public String featDescription(){
+    public String featDescription(){
         return "Always on the lookout for danger, you gain the following " +
                 "benefits: \n" +
                 "- You gain a +5 bonus to initiative. \n" +

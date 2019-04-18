@@ -4,11 +4,7 @@ import QuickBuild.Character;
 public class Charger implements IFeats {
     public void updateStats(Character person){ }
 
-    public Boolean metPreReqs(Character person){
-        return true;
-    }
-
-    static public String featDescription(){
+    public String featDescription(){
         return "When you use your action to Dash, you can use a bonus action " +
                 "to make one melee weapon attack or to shove a creature.\n" +
                 "If you move at least 10 feet in a straight line immediately "+

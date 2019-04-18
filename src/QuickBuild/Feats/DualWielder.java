@@ -6,11 +6,7 @@ public class DualWielder implements IFeats {
 
     }
 
-    public Boolean metPreReqs(Character person){
-        return true;
-    }
-
-    static public String featDescription(){
+    public String featDescription(){
         return "You master fighting with two weapons, gaining the following " +
                 "benefits:\n" +
                 "- You gain a +1 bonus to AC while you are wielding a " +

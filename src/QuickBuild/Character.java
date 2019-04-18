@@ -127,8 +127,12 @@ public class Character {
     // Every class has their own hit die and this re-rolls 1s
     private void addHealth(){
         int temp = archetype.rollHitDie();
-        while(temp == 1)
-            temp = archetype.rollHitDie();
+        if(feats.contains("Durable"))
+            while(temp > Math.max(scoreMods.get("CON") * 2, 2))
+                temp = archetype.rollHitDie();
+        else
+            while(temp == 1)
+                temp = archetype.rollHitDie();
         health = health + temp + scoreMods.get("CON") + healthBonus;
     }
 

@@ -24,8 +24,9 @@ public interface IFeats {
 
     void updateStats(Character person);
 
-    Boolean metPreReqs(Character person);
+    String featDescription();
 
+    // I use this a constructor since dynamic variables aren't a thing in java
     static IFeats addFeat(String feat){
         switch (feat){
             case "Alert":
@@ -110,67 +111,51 @@ public interface IFeats {
                 return new Tough();
             case "War Caster":
                 return new WarCaster();
-            case "Weapon Master":
-                return new WeaponMaster();
             default:
-                return new Empty();
+                return new WeaponMaster();
         }
     }
 
     static Boolean checkPreReqs(Character person, String feat){
-        IFeats checker;
         switch(feat){
             case "Defensive Duelist":
-                checker = new DefensiveDuelist();
-                break;
+                return DefensiveDuelist.metPreReqs(person);
 
             case "Elemental Adept":
-                checker = new ElementalAdept();
-                break;
+                return ElementalAdept.metPreReqs(person);
 
             case "Grappler":
-                checker = new Grappler();
-                break;
+                return Grappler.metPreReqs(person);
 
             case "Heavily Armored":
-                checker = new HeavilyArmored();
-                break;
+                return HeavilyArmored.metPreReqs(person);
 
             case "Heavy Armor Master":
-                checker = new HeavyArmorMaster();
-                break;
+                return HeavyArmorMaster.metPreReqs(person);
 
             case "Inspiring Leader":
-                checker = new InspiringLeader();
-                break;
+                return InspiringLeader.metPreReqs(person);
 
             case "Medium Armor Master":
-                checker = new MediumArmorMaster();
-                break;
+                return MediumArmorMaster.metPreReqs(person);
 
             case "Moderately Armored":
-                checker = new ModeratelyArmored();
-                break;
+                return ModeratelyArmored.metPreReqs(person);
 
             case "Ritual Caster":
-                checker = new RitualCaster();
-                break;
+                return RitualCaster.metPreReqs(person);
 
             case "Skulker":
-                checker = new Skulker();
-                break;
+                return Skulker.metPreReqs(person);
 
             case "Spell Sniper":
-                checker = new SpellSniper();
-                break;
+                return SpellSniper.metPreReqs(person);
 
             case "War Caster":
-                checker = new WarCaster();
-                break;
+                return WarCaster.metPreReqs(person);
 
             default:
-                checker = new Empty();
+                return true;
         }
-        return checker.metPreReqs(person);
     }
 }

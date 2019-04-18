@@ -6,11 +6,7 @@ public class CrossbowExpert implements IFeats {
 
     }
 
-    public Boolean metPreReqs(Character person){
-        return true;
-    }
-
-    static public String featDescription(){
+    public String featDescription(){
         return "Thanks to extensive practice you gain the following " +
                 "benefits:\n" +
                 "- You ignore the loading quality of crossbows with which " +

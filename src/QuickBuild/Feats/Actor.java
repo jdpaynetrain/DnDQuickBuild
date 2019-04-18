@@ -6,11 +6,7 @@ public class Actor implements IFeats {
         person.updateStat("CHA", 1);
     }
 
-    public Boolean metPreReqs(Character person){
-        return true;
-    }
-
-    static public String featDescription(){
+    public String featDescription(){
         return "Skilled at mimicry and dramatics, you gain the following " +
                 "benefits: \n" +
                 "- Increase your Charisma score by 1, to a maximum of 20 \n" +
