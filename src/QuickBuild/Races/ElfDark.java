@@ -3,8 +3,8 @@ import java.util.*;
 
 public class ElfDark implements Races {
     public void applyBuffs(Map<String, Integer> stats){
-        stats.put("DEX", Math.min(stats.get("DEX") + 2, 20));
-        stats.put("CHA", Math.min(stats.get("CHA") + 1, 20));
+        stats.put("DEX", stats.get("DEX") + 2);
+        stats.put("CHA", stats.get("CHA") + 1);
     }
     public Set<String> racialLanguages(){
         return new HashSet<>(Arrays.asList("Common", "Elvish"));

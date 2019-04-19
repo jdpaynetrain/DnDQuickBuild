@@ -1,25 +1,23 @@
 package QuickBuild.Feats;
 import QuickBuild.Character;
-import java.util.Scanner;
+import java.util.Set;
+import java.util.HashSet;
 
 public class Resilient implements IFeats {
 
     public void updateStats(Character person){
-        Scanner sc = new Scanner(System.in);
-        Character.printToUser("Choose an ability to increase:");
+        Set<String> abilityOptions = new HashSet<>();
+        for(String curr: Character.allScores){
+            if(person.checkStat(curr) < 20)
+                abilityOptions.add(curr);
+        }
+        IFeats.printStuff("Choose an ability to increase:");
         person.printScores();
-        String userScore = sc.nextLine();
-        while(!Character.allScores.contains(userScore) ||
-                person.checkStat(userScore) == 20){
-            if(Character.allScores.contains(userScore)){
-                Character.printToUser("Scores can only be increased to 20."
-                        + " Choose another.");
-            }
-            else{
-                Character.printToUser("That isn't a choice");
-            }
+        String userScore = IFeats.getLine();
+        while(!abilityOptions.contains(userScore)){
+            IFeats.printStuff("That isn't a choice");
             person.printScores();
-            userScore = sc.nextLine();
+            userScore = IFeats.getLine();
         }
         person.updateStat(userScore, 1);
     }

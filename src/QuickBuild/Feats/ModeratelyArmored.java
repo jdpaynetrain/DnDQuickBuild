@@ -4,35 +4,31 @@ import java.util.Scanner;
 
 public class ModeratelyArmored implements IFeats {
     public void updateStats(Character person){
-        if(person.checkStat("STR") != 20 || person.checkStat("DEX") != 20){
-            Scanner sc = new Scanner(System.in);
-            Character.printToUser("Choose STR or DEX to increase");
+        if(person.checkStat("STR") == 20 && person.checkStat("DEX") == 20){
+            IFeats.printStuff("STR and DEX are both 20. No stats to boost.");
+        }
+        else if(person.checkStat("STR").equals(20)){
+            IFeats.printStuff("STR is already 20. Boosting DEX");
+            person.updateStat("STR", 1);
+        }
+        else if(person.checkStat("DEX").equals(20)){
+            IFeats.printStuff("DEX is already 20. Boosting STR");
+            person.updateStat("DEX", 1);
+        }
+        else {
+            IFeats.printStuff("Choose STR or DEX to increase");
             person.printScores();
-            String temp = sc.nextLine();
-            while((!temp.equals("DEX") && !temp.equals("STR")) ||
-                    person.checkStat(temp) == 20){
-                if(temp.equals("DEX")) {
-                    Character.printToUser("DEX is already 20. Boosting STR");
-                    temp = "STR";
-                }
-                else if(temp.equals("STR")){
-                    Character.printToUser("STR is already 20. Boosting DEX");
-                    temp = "DEX";
-                }
-                else{
-                    Character.printToUser("Options are DEX or STR");
-                    temp = sc.nextLine();
-                }
+            String temp = IFeats.getLine();
+            while((!temp.equals("DEX") && !temp.equals("STR"))){
+                IFeats.printStuff("Options are DEX or STR");
+                temp = IFeats.getLine();
             }
             person.updateStat(temp, 1);
         }
-        else{
-            Character.printToUser("STR and DEX are both 20. No stats to boost.");
-        }
-
         person.addProf("Medium Armor");
         person.addProf("Shields");
     }
+
 
     static public Boolean metPreReqs(Character person){
         return person.hasProf("All Armor") || person.hasProf("Light Armor");

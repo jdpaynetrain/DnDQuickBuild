@@ -17,23 +17,23 @@ public class Paladin implements IPaladin {
         return scores;
     }
 
-    public void classProfs(Set<String> profs) {
+    public void classProfs(Set<String> profs){
         profs.addAll(paladinProfs);
+        Set<String> profOptions = new HashSet<>();
+        for(String curr: paladinSkills){
+            if(!profs.contains(curr))
+                profOptions.add(curr);
+        }
         for(int i = 0; i < 2; i++) {
             Classes.printStuff("Choose a skill to have proficiency in:");
-            Classes.printStuff(paladinSkills.toString());
+            Classes.printStuff(profOptions.toString());
             String userProf = Classes.getLine();
-            while (!paladinSkills.contains(userProf) || profs.contains(userProf)) {
-                if (profs.contains(userProf)) {
-                    Classes.printStuff("You already have proficiency. Choose " +
-                            "another");
-                    Classes.printStuff(paladinSkills.toString());
-                } else {
-                    Classes.printStuff("That is not an option. Choose another");
-                    Classes.printStuff(paladinSkills.toString());
-                }
+            while (!profOptions.contains(userProf)) {
+                Classes.printStuff("That is not an option. Choose another");
+                Classes.printStuff(profOptions.toString());
                 userProf = Classes.getLine();
             }
+            profOptions.remove(userProf);
             profs.add(userProf);
         }
     }

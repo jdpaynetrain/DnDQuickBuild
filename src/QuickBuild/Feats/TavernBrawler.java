@@ -3,33 +3,27 @@ import QuickBuild.Character;
 import java.util.Scanner;
 
 public class TavernBrawler implements IFeats {
-
     public void updateStats(Character person){
-        if(person.checkStat("STR") != 20 || person.checkStat("CON") != 20){
-            Scanner sc = new Scanner(System.in);
-            Character.printToUser("You have chosen the athlete feat.");
-            Character.printToUser("Choose STR or CON to increase");
+        if(person.checkStat("STR") == 20 && person.checkStat("CON") == 20){
+            IFeats.printStuff("STR and CON are both 20. No stats to boost.");
+        }
+        else if(person.checkStat("STR").equals(20)){
+            IFeats.printStuff("STR is already 20. Boosting CON");
+            person.updateStat("STR", 1);
+        }
+        else if(person.checkStat("CON").equals(20)){
+            IFeats.printStuff("CON is already 20. Boosting STR");
+            person.updateStat("CON", 1);
+        }
+        else {
+            IFeats.printStuff("Choose STR or CON to increase");
             person.printScores();
-            String temp = sc.nextLine();
-            while((!temp.equals("CON") && !temp.equals("STR")) ||
-                    person.checkStat(temp) == 20){
-                if(temp.equals("CON")) {
-                    Character.printToUser("CON is already 20. Boosting STR");
-                    temp = "STR";
-                }
-                else if(temp.equals("STR")){
-                    Character.printToUser("STR is already 20. Boosting CON");
-                    temp = "CON";
-                }
-                else{
-                    Character.printToUser("Options are CON or STR");
-                    temp = sc.nextLine();
-                }
+            String temp = IFeats.getLine();
+            while((!temp.equals("CON") && !temp.equals("STR"))){
+                IFeats.printStuff("Options are CON or STR");
+                temp = IFeats.getLine();
             }
             person.updateStat(temp, 1);
-        }
-        else{
-            Character.printToUser("STR and CON are both 20. No stats to boost.");
         }
         person.addProf("Improvised Weapons");
         person.addProf("Unarmed Strikes");

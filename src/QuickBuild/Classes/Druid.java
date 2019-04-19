@@ -19,21 +19,21 @@ public class Druid implements IDruid {
 
     public void classProfs(Set<String> profs){
         profs.addAll(druidProfs);
+        Set<String> profOptions = new HashSet<>();
+        for(String curr: druidSkills){
+            if(!profs.contains(curr))
+                profOptions.add(curr);
+        }
         for(int i = 0; i < 2; i++) {
             Classes.printStuff("Choose a skill to have proficiency in:");
-            Classes.printStuff(druidSkills.toString());
+            Classes.printStuff(profOptions.toString());
             String userProf = Classes.getLine();
-            while (!druidSkills.contains(userProf) || profs.contains(userProf)) {
-                if (profs.contains(userProf)) {
-                    Classes.printStuff("You already have proficiency. Choose " +
-                            "another");
-                    Classes.printStuff(druidSkills.toString());
-                } else {
-                    Classes.printStuff("That is not an option. Choose another");
-                    Classes.printStuff(druidSkills.toString());
-                }
+            while (!profOptions.contains(userProf)) {
+                Classes.printStuff("That is not an option. Choose another");
+                Classes.printStuff(profOptions.toString());
                 userProf = Classes.getLine();
             }
+            profOptions.remove(userProf);
             profs.add(userProf);
         }
     }

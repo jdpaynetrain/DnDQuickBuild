@@ -4,61 +4,52 @@ import QuickBuild.Character;
 
 public class HalfElf implements Races {
     public void applyBuffs(Map<String, Integer> stats){
-        Scanner sc = new Scanner(System.in);
-        stats.put("CHA", Math.min(stats.get("CHA") + 2, 20));
+        stats.put("CHA", stats.get("CHA") + 2);
 
-        Character.printToUser("Choose an ability score to increase by 1");
-        Character.printToUser(allAttributes.toString());
-        String newStat = sc.nextLine();
-        while(!allAttributes.contains(newStat) || stats.get(newStat) + 1 > 20){
-            if(allAttributes.contains(newStat)){
-                Character.printToUser("Ability scores can only go to 20, " +
-                        "choose another");
-            }
-            else {
-                Character.printToUser("Choice must be one of the following:");
-                Character.printToUser(allAttributes.toString());
-            }
-            newStat = sc.nextLine();
+        Set<String> statOptions = new HashSet<>();
+        for(String curr: allAttributes){
+            if(stats.get(curr) < 20)
+                statOptions.add(curr);
         }
-        stats.put(newStat, Math.min(stats.get(newStat) + 1, 20));
+        Races.printStuff("Choose an ability score to increase by 1");
+        Races.printStuff(statOptions.toString());
+        String newStat = Races.getLine();
+        while(!statOptions.contains(newStat)){
+                Races.printStuff("Choice must be one of the following:");
+                Races.printStuff(statOptions.toString());
+            newStat = Races.getLine();
+        }
+        stats.put(newStat, stats.get(newStat) + 1);
 
-        Character.printToUser("Choose another ability score to increase by 1");
-        Character.printToUser(allAttributes.toString());
-        newStat = sc.nextLine();
-        while(!allAttributes.contains(newStat) || stats.get(newStat) + 1 > 20){
-            if(allAttributes.contains(newStat)){
-                Character.printToUser("Ability scores can only go to 20, " +
-                        "choose another");
-            }
-            else {
-                Character.printToUser("Choice must be one of the following:");
-                Character.printToUser(allAttributes.toString());
-            }
-            newStat = sc.nextLine();
+        if(stats.get(newStat).equals(20))
+            statOptions.remove(newStat);
+
+        Races.printStuff("Choose an ability score to increase by 1");
+        Races.printStuff(statOptions.toString());
+        newStat = Races.getLine();
+        while(!statOptions.contains(newStat)){
+            Races.printStuff("Choice must be one of the following:");
+            Races.printStuff(statOptions.toString());
+            newStat = Races.getLine();
         }
-        stats.put(newStat, Math.min(stats.get(newStat) + 1, 20));
+        stats.put(newStat, stats.get(newStat) + 1);
     }
 
     public Set<String> racialLanguages(){
         Set<String> lang = new HashSet<>(Arrays.asList("Common", "Elvish"));
-        Character.printToUser("Choose a language other than Common and " +
-                           "Elvish to know. Options are:");
-        Character.printToUser(allLanguages.toString());
-        Scanner sc = new Scanner(System.in);
-        String userLang = sc.nextLine();
-        while(!allLanguages.contains(userLang) || lang.contains(userLang)){
-            if(lang.contains(userLang)){
-                Character.printToUser("You already know that language. " +
-                                   "Choose another");
-                Character.printToUser(allLanguages.toString());
-            }
-            else{
-                Character.printToUser("That language is not an option. " +
-                                   "Choose another");
-                Character.printToUser(allLanguages.toString());
-            }
-            userLang = sc.nextLine();
+        Set<String> langOptions = new HashSet<>();
+        for(String curr: allLanguages){
+            if(!lang.contains(curr))
+                langOptions.add(curr);
+        }
+        Races.printStuff("Choose a language to learn. Options are:");
+        Races.printStuff(langOptions.toString());
+        String userLang = Races.getLine();
+        while(!langOptions.contains(userLang)){
+                Races.printStuff("That language is not an option. Choose " +
+                        "another");
+                Races.printStuff(langOptions.toString());
+            userLang = Races.getLine();
         }
 
         lang.add(userLang);

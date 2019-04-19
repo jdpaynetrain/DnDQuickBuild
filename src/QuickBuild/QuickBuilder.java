@@ -4,7 +4,7 @@ import QuickBuild.Classes.Classes;
 import QuickBuild.Races.Races;
 
 public class QuickBuilder {
-    public static final Scanner sc = new Scanner(System.in);
+    private static final Scanner sc = new Scanner(System.in);
     public static void main(String[] args){
         Character person = new Character();
 
@@ -42,7 +42,7 @@ public class QuickBuilder {
     }
 
     // Print the final stats for the built character
-    public static void printStats(Character person){
+    private static void printStats(Character person){
         printToUser(person.getRace() + "-" + person.getType());
         printToUser("Level: " + person.getLevel());
         person.printScores();
@@ -71,6 +71,4 @@ public class QuickBuilder {
         sc.nextLine();
         return value;
     }
-
-
 }

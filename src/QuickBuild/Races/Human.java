@@ -10,24 +10,21 @@ public class Human implements Races {
     public Set<String> racialLanguages(){
         Set<String> lang = new HashSet<>();
         lang.add("Common");
-        Character.printToUser("Choose a language other than Common to know" +
-                           " Options are:");
-        Character.printToUser(allLanguages.toString());
-        Scanner sc = new Scanner(System.in);
+        Set<String> langOptions = new HashSet<>();
 
-        String userLang = sc.nextLine();
-        while(!allLanguages.contains(userLang) || lang.contains(userLang)){
-            if(lang.contains(userLang)){
-                Character.printToUser("You already know that language. " +
-                        "Choose another");
-                Character.printToUser(allLanguages.toString());
-            }
-            else{
-                Character.printToUser("That language is not an option. " +
-                        "Choose another");
-                Character.printToUser(allLanguages.toString());
-            }
-            userLang = sc.nextLine();
+        for(String curr: allLanguages){
+            if(!lang.contains(curr))
+                langOptions.add(curr);
+        }
+
+        Races.printStuff("Choose a language to learn:");
+        Races.printStuff(langOptions.toString());
+        String userLang = Races.getLine();
+        while(!langOptions.contains(userLang)){
+            Races.printStuff("That language is not an option. " +
+                    "Choose another");
+            Races.printStuff(langOptions.toString());
+            userLang = Races.getLine();
         }
         lang.add(userLang);
 

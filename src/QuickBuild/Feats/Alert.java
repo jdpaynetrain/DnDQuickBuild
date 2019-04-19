@@ -1,5 +1,4 @@
 package QuickBuild.Feats;
-
 import QuickBuild.Character;
 
 public class Alert implements IFeats {

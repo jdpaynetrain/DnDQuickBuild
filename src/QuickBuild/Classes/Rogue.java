@@ -17,23 +17,23 @@ public class Rogue implements IRogue {
         return scores;
     }
 
-    public void classProfs(Set<String> profs) {
+    public void classProfs(Set<String> profs){
         profs.addAll(rogueProfs);
+        Set<String> profOptions = new HashSet<>();
+        for(String curr: rogueSkills){
+            if(!profs.contains(curr))
+                profOptions.add(curr);
+        }
         for(int i = 0; i < 4; i++) {
             Classes.printStuff("Choose a skill to have proficiency in:");
-            Classes.printStuff(rogueSkills.toString());
+            Classes.printStuff(profOptions.toString());
             String userProf = Classes.getLine();
-            while (!rogueSkills.contains(userProf) || profs.contains(userProf)) {
-                if (profs.contains(userProf)) {
-                    Classes.printStuff("You already have proficiency. Choose " +
-                            "another");
-                    Classes.printStuff(rogueSkills.toString());
-                } else {
-                    Classes.printStuff("That is not an option. Choose another");
-                    Classes.printStuff(rogueSkills.toString());
-                }
+            while (!profOptions.contains(userProf)) {
+                Classes.printStuff("That is not an option. Choose another");
+                Classes.printStuff(profOptions.toString());
                 userProf = Classes.getLine();
             }
+            profOptions.remove(userProf);
             profs.add(userProf);
         }
     }

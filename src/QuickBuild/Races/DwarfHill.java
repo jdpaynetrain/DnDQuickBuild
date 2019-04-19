@@ -9,21 +9,20 @@ public class DwarfHill implements Races {
     }
 
     public void applyBuffs(Map<String, Integer> stats){
-        stats.put("CON", Math.min(stats.get("CON") + 2, 20));
-        stats.put("WIS", Math.min(stats.get("WIS") + 1, 20));
+        stats.put("CON", stats.get("CON") + 2);
+        stats.put("WIS", stats.get("WIS") + 1);
     }
 
     public Set<String> racialProfs(){
-        Scanner sc = new Scanner(System.in);
         Set<String> profs = new HashSet<>(Arrays.asList("Battleaxe", "Handaxe",
                 "Throwing Hammer", "Warhammer"));
-        Character.printToUser("Choose an artisan tool to have proficiency with");
-        Character.printToUser(artisansTools.toString());
-        String userTool = sc.nextLine();
+        Races.printStuff("Choose an artisan tool to have proficiency with");
+        Races.printStuff(artisansTools.toString());
+        String userTool = Races.getLine();
         while(!artisansTools.contains(userTool)){
-            Character.printToUser("Tool must be one of the following");
-            Character.printToUser(artisansTools.toString());
-            userTool = sc.nextLine();
+            Races.printStuff("Tool must be one of the following");
+            Races.printStuff(artisansTools.toString());
+            userTool = Races.getLine();
         }
         profs.add(userTool);
 

@@ -8,7 +8,6 @@ import com.sun.source.tree.IfTree;
 import java.util.*;
 
 public class Character {
-
     private List<Integer> baseStats;
     private Classes archetype;
     private Races racial;
@@ -196,7 +195,12 @@ public class Character {
 
     // Get's the user's feat choice and adds it
     private void addFeat(){
-        Set<String> allowedFeats = allowedFeats();
+        Set<String> allowedFeats = new HashSet<>();
+        for(String curr: IFeats.allFeats){
+            if(IFeats.checkPreReqs(this, curr) && !feats.contains(curr)){
+                allowedFeats.add(curr);
+            }
+        }
         QuickBuilder.printToUser("Choose a feat");
         QuickBuilder.printToUser(allowedFeats.toString());
         String userFeat = QuickBuilder.getUserLine();
@@ -207,16 +211,6 @@ public class Character {
         }
         feats.add(userFeat);
         this.applyFeat(IFeats.addFeat(userFeat));
-    }
-
-    private Set<String> allowedFeats(){
-        Set<String> allowed = new HashSet<>();
-        for(String curr: IFeats.allFeats){
-            if(IFeats.checkPreReqs(this, curr) && !feats.contains(curr)){
-                allowed.add(curr);
-            }
-        }
-        return allowed;
     }
 
     private void applyFeat(IFeats aFeat){

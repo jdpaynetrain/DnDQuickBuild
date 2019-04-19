@@ -5,31 +5,26 @@ import java.util.Scanner;
 public class Observant implements IFeats {
 
     public void updateStats(Character person){
-        if(person.checkStat("INT") != 20 || person.checkStat("WIS") != 20){
-            Scanner sc = new Scanner(System.in);
-            Character.printToUser("You have chosen the Observant feat.");
-            Character.printToUser("Choose INT or WIS to increase");
+        if(person.checkStat("INT") == 20 && person.checkStat("WIS") == 20){
+            IFeats.printStuff("INT and WIS are both 20. No stats to boost.");
+        }
+        else if(person.checkStat("INT").equals(20)){
+            IFeats.printStuff("INT is already 20. Boosting WIS");
+            person.updateStat("INT", 1);
+        }
+        else if(person.checkStat("WIS").equals(20)){
+            IFeats.printStuff("WIS is already 20. Boosting INT");
+            person.updateStat("WIS", 1);
+        }
+        else {
+            IFeats.printStuff("Choose INT or WIS to increase");
             person.printScores();
-            String temp = sc.nextLine();
-            while((!temp.equals("INT") && !temp.equals("WIS")) ||
-                    person.checkStat(temp) == 20){
-                if(temp.equals("INT")) {
-                    Character.printToUser("INT is already 20. Boosting WIS");
-                    temp = "WIS";
-                }
-                else if(temp.equals("WIS")){
-                    Character.printToUser("WIS is already 20. Boosting INT");
-                    temp = "INT";
-                }
-                else{
-                    Character.printToUser("Options are INT or WIS");
-                    temp = sc.nextLine();
-                }
+            String temp = IFeats.getLine();
+            while((!temp.equals("WIS") && !temp.equals("INT"))){
+                IFeats.printStuff("Options are WIS or INT");
+                temp = IFeats.getLine();
             }
             person.updateStat(temp, 1);
-        }
-        else{
-            Character.printToUser("STR and DEX are both 20. No stats to boost.");
         }
     }
 
