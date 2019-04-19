@@ -3,6 +3,8 @@ package QuickBuild;
 import QuickBuild.Classes.*;
 import QuickBuild.Races.*;
 import QuickBuild.Feats.*;
+import com.sun.source.tree.IfTree;
+
 import java.util.*;
 
 public class Character {
@@ -196,29 +198,30 @@ public class Character {
 
     // Get's the user's feat choice and adds it
     private void addFeat(){
+        Set<String> allowedFeats = allowedFeats();
         Scanner sc = new Scanner(System.in);
         Character.printToUser("Choose a feat");
-        Character.printToUser(IFeats.allFeats.toString());
+        Character.printToUser(allowedFeats.toString());
         String userFeat = sc.nextLine();
         // We want to ensure the user doesn't have the feat, the choice is
         // allowed and they meet the prereqs for the feats
-        while(!IFeats.allFeats.contains(userFeat) || feats.contains(userFeat) || !checkPreRegs(userFeat)){
-            if(feats.contains(userFeat)){
-                Character.printToUser("You already have this feat. Chose another");
-                Character.printToUser(IFeats.allFeats.toString());
-            }
-            else if(!IFeats.allFeats.contains(userFeat)){
-                Character.printToUser("That is not an option. Chose another");
-                Character.printToUser(IFeats.allFeats.toString());
-            }
-            else{
-                Character.printToUser("You don't meet the pre-reqs. Chose another");
-                Character.printToUser(IFeats.allFeats.toString());
-            }
+        while(!allowedFeats.contains(userFeat)){
+            Character.printToUser("That is not an option. Chose another");
+            Character.printToUser(allowedFeats.toString());
             userFeat = sc.nextLine();
         }
         feats.add(userFeat);
         this.applyFeat(IFeats.addFeat(userFeat));
+    }
+
+    private Set<String> allowedFeats(){
+        Set<String> allowed = new HashSet<>();
+        for(String curr: IFeats.allFeats){
+            if(IFeats.checkPreReqs(this, curr) && !feats.contains(curr)){
+                allowed.add(curr);
+            }
+        }
+        return allowed;
     }
 
     private void applyFeat(IFeats aFeat){
@@ -230,10 +233,6 @@ public class Character {
             Character.printToUser(entry.getKey() + " -- " + entry.getValue() +
                     "(" + scoreMods.get(entry.getKey()) + ")");
         }
-    }
-
-    private Boolean checkPreRegs(String feat){
-        return IFeats.checkPreReqs(this, feat);
     }
 
     // Adders/getters/setters
