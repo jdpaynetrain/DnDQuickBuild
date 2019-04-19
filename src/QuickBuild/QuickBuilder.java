@@ -4,39 +4,36 @@ import QuickBuild.Classes.Classes;
 import QuickBuild.Races.Races;
 
 public class QuickBuilder {
-
+    public static final Scanner sc = new Scanner(System.in);
     public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
         Character person = new Character();
 
         // Get the user's race
-        Character.printToUser("What race would you like to play? Options are: ");
-        Character.printToUser(Races.allRaces.toString());
-        String userRace = sc.nextLine();
+        printToUser("What race would you like to play? Options are: ");
+        printToUser(Races.allRaces.toString());
+        String userRace = getUserLine();
         while(!Races.allRaces.contains(userRace)){
-            Character.printToUser("Race must be one of the following:");
-            Character.printToUser(Races.allRaces.toString());
-            userRace = sc.nextLine();
+            printToUser("Race must be one of the following:");
+            printToUser(Races.allRaces.toString());
+            userRace = getUserLine();
         }
 
         // Get the user's class
-        Character.printToUser("What class would you like to play? Options are: ");
-        Character.printToUser(Classes.allClasses.toString());
-        String userClass = sc.nextLine();
+        printToUser("What class would you like to play? Options are: ");
+        printToUser(Classes.allClasses.toString());
+        String userClass = getUserLine();
         while(!Classes.allClasses.contains(userClass)){
-            Character.printToUser("Class must be one of the following:");
-            Character.printToUser(Classes.allClasses.toString());
-            userClass = sc.nextLine();
+            printToUser("Class must be one of the following:");
+            printToUser(Classes.allClasses.toString());
+            userClass = getUserLine();
         }
 
         // Get the user's level
-        Character.printToUser("What level character do you want? (1-20)");
-        int level = sc.nextInt();
-        sc.nextLine();
+        printToUser("What level character do you want? (1-20)");
+        int level = getUserInt();
         while(level > 20 || level < 1){
-            Character.printToUser("Level must be between 1 and 20");
-            level = sc.nextInt();
-            sc.nextLine();
+            printToUser("Level must be between 1 and 20");
+            level = getUserInt();
         }
 
         // Build the character and print the stats
@@ -46,20 +43,33 @@ public class QuickBuilder {
 
     // Print the final stats for the built character
     public static void printStats(Character person){
-        Character.printToUser(person.getRace() + "-" + person.getType());
-        Character.printToUser("Level: " + person.getLevel());
+        printToUser(person.getRace() + "-" + person.getType());
+        printToUser("Level: " + person.getLevel());
         person.printScores();
-        Character.printToUser("Initiative: " + person.getInitiative());
-        Character.printToUser("Health: " + person.getHealth());
-        Character.printToUser("Proficiencies are:");
-        Character.printToUser(person.getProficiencies().toString());
-        Character.printToUser("Known languages are:");
-        Character.printToUser(person.getKnownLanguages().toString());
+        printToUser("Initiative: " + person.getInitiative());
+        printToUser("Health: " + person.getHealth());
+        printToUser("Proficiencies are:");
+        printToUser(person.getProficiencies().toString());
+        printToUser("Known languages are:");
+        printToUser(person.getKnownLanguages().toString());
         if(person.getFeats().size() > 0) {
-            Character.printToUser("Feats:");
-            Character.printToUser(person.getFeats().toString());
+            printToUser("Feats:");
+            printToUser(person.getFeats().toString());
         }
+    }
 
+    public static void printToUser(String message){
+        System.out.println(message);
+    }
+
+    public static String getUserLine(){
+        return sc.nextLine();
+    }
+
+    public static Integer getUserInt(){
+        Integer value = sc.nextInt();
+        sc.nextLine();
+        return value;
     }
 
 

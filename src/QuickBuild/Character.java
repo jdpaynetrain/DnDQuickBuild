@@ -157,13 +157,12 @@ public class Character {
     // Special levels are 4, 8, 12, 16, and 19 and this gets the user's choice
     // For those levels
     private void specialLevel(){
-        Scanner sc = new Scanner(System.in);
-        Character.printToUser("Would you like to increase your ability score (AS)"
+        QuickBuilder.printToUser("Would you like to increase your ability score (AS)"
                 + " or gain a feat (feat)?");
-        String userChoice = sc.nextLine();
+        String userChoice = QuickBuilder.getUserLine();
         while(!userChoice.equals("AS") && !userChoice.equals("feat")){
-            Character.printToUser("Choice must be AS or feat");
-            userChoice = sc.nextLine();
+            QuickBuilder.printToUser("Choice must be AS or feat");
+            userChoice = QuickBuilder.getUserLine();
         }
         if(userChoice.equals("AS")){
             this.ASI();
@@ -175,22 +174,21 @@ public class Character {
 
     // This gets the user's choice for scores to increase and increases them
     private void ASI(){
-        Scanner sc = new Scanner(System.in);
         for(int i = 0; i < 2; i++){
-            Character.printToUser("Choose an ability to increase:");
+            QuickBuilder.printToUser("Choose an ability to increase:");
             this.printScores();
-            String userScore = sc.nextLine();
+            String userScore = QuickBuilder.getUserLine();
             while(!allScores.contains(userScore) ||
                     stats.get(userScore) == 20){
                 if(allScores.contains(userScore)){
-                    Character.printToUser("Scores can only be increased to 20."
+                    QuickBuilder.printToUser("Scores can only be increased to 20."
                             + " Choose another.");
                 }
                 else{
-                    Character.printToUser("That isn't a choice");
+                    QuickBuilder.printToUser("That isn't a choice");
                 }
                 this.printScores();
-                userScore = sc.nextLine();
+                userScore = QuickBuilder.getUserLine();
             }
             this.updateStat(userScore, 1);
         }
@@ -199,14 +197,13 @@ public class Character {
     // Get's the user's feat choice and adds it
     private void addFeat(){
         Set<String> allowedFeats = allowedFeats();
-        Scanner sc = new Scanner(System.in);
-        Character.printToUser("Choose a feat");
-        Character.printToUser(allowedFeats.toString());
-        String userFeat = sc.nextLine();
+        QuickBuilder.printToUser("Choose a feat");
+        QuickBuilder.printToUser(allowedFeats.toString());
+        String userFeat = QuickBuilder.getUserLine();
         while(!allowedFeats.contains(userFeat)){
-            Character.printToUser("That is not an option. Chose another");
-            Character.printToUser(allowedFeats.toString());
-            userFeat = sc.nextLine();
+            QuickBuilder.printToUser("That is not an option. Chose another");
+            QuickBuilder.printToUser(allowedFeats.toString());
+            userFeat = QuickBuilder.getUserLine();
         }
         feats.add(userFeat);
         this.applyFeat(IFeats.addFeat(userFeat));
@@ -228,7 +225,7 @@ public class Character {
 
     public void printScores(){
         for(Map.Entry<String, Integer> entry: stats.entrySet()){
-            Character.printToUser(entry.getKey() + " -- " + entry.getValue() +
+            QuickBuilder.printToUser(entry.getKey() + " -- " + entry.getValue() +
                     "(" + scoreMods.get(entry.getKey()) + ")");
         }
     }
@@ -296,10 +293,6 @@ public class Character {
 
     public Integer getInitiative(){
         return initiative;
-    }
-
-    static public void printToUser(String output){
-        System.out.println(output);
     }
 
 }

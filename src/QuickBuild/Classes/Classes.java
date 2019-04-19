@@ -1,5 +1,7 @@
 package QuickBuild.Classes;
 
+import QuickBuild.QuickBuilder;
+
 import java.util.*;
 
 public interface Classes {
@@ -18,4 +20,16 @@ public interface Classes {
     void classProfs(Set<String> profs);
     Integer baseHealth();
     Integer rollHitDie();
+
+    static String getLine(){
+        return QuickBuilder.getUserLine();
+    }
+
+    static Integer getNumber(){
+        return QuickBuilder.getUserInt();
+    }
+
+    static void printStuff(String message){
+        QuickBuilder.printToUser(message);
+    }
 }
