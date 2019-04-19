@@ -20,22 +20,20 @@ public class Cleric implements ICleric {
 
     public void classProfs(Set<String> profs){
         profs.addAll(clericProfs);
-        Scanner sc = new Scanner(System.in);
-
         for(int i = 0; i < 2; i++) {
-            Character.printToUser("Choose a skill to have proficiency in:");
-            Character.printToUser(clericSkills.toString());
-            String userProf = sc.nextLine();
+            Classes.printStuff("Choose a skill to have proficiency in:");
+            Classes.printStuff(clericSkills.toString());
+            String userProf = Classes.getLine();
             while (!clericSkills.contains(userProf) || profs.contains(userProf)) {
                 if (profs.contains(userProf)) {
-                    Character.printToUser("You already have proficiency. Choose " +
+                    Classes.printStuff("You already have proficiency. Choose " +
                             "another");
-                    Character.printToUser(clericSkills.toString());
+                    Classes.printStuff(clericSkills.toString());
                 } else {
-                    Character.printToUser("That is not an option. Choose another");
-                    Character.printToUser(clericSkills.toString());
+                    Classes.printStuff("That is not an option. Choose another");
+                    Classes.printStuff(clericSkills.toString());
                 }
-                userProf = sc.nextLine();
+                userProf = Classes.getLine();
             }
             profs.add(userProf);
         }

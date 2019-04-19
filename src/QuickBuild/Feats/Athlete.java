@@ -6,30 +6,28 @@ public class Athlete implements IFeats {
 
     public void updateStats(Character person){
         if(person.checkStat("STR") != 20 || person.checkStat("DEX") != 20){
-            Scanner sc = new Scanner(System.in);
-            Character.printToUser("You have chosen the athlete feat.");
-            Character.printToUser("Choose STR or DEX to increase");
+            IFeats.printStuff("Choose STR or DEX to increase");
             person.printScores();
-            String temp = sc.nextLine();
+            String temp = IFeats.getLine();
             while((!temp.equals("DEX") && !temp.equals("STR")) ||
                     person.checkStat(temp) == 20){
                 if(temp.equals("DEX")) {
-                    Character.printToUser("DEX is already 20. Boosting STR");
+                    IFeats.printStuff("DEX is already 20. Boosting STR");
                     temp = "STR";
                 }
                 else if(temp.equals("STR")){
-                    Character.printToUser("STR is already 20. Boosting DEX");
+                    IFeats.printStuff("STR is already 20. Boosting DEX");
                     temp = "DEX";
                 }
                 else{
-                    Character.printToUser("Options are DEX or STR");
-                    temp = sc.nextLine();
+                    IFeats.printStuff("Options are DEX or STR");
+                    temp = IFeats.getLine();
                 }
             }
             person.updateStat(temp, 1);
         }
         else{
-            Character.printToUser("STR and DEX are both 20. No stats to boost.");
+            IFeats.printStuff("STR and DEX are both 20. No stats to boost.");
         }
     }
 

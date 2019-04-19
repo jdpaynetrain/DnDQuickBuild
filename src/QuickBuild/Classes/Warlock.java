@@ -19,21 +19,20 @@ public class Warlock implements IWarlock {
 
     public void classProfs(Set<String> profs) {
         profs.addAll(warlockProfs);
-        Scanner sc = new Scanner(System.in);
         for(int i = 0; i < 2; i++) {
-            Character.printToUser("Choose a skill to have proficiency in:");
-            Character.printToUser(warlockSkills.toString());
-            String userProf = sc.nextLine();
+            Classes.printStuff("Choose a skill to have proficiency in:");
+            Classes.printStuff(warlockSkills.toString());
+            String userProf = Classes.getLine();
             while (!warlockSkills.contains(userProf) || profs.contains(userProf)) {
                 if (profs.contains(userProf)) {
-                    Character.printToUser("You already have proficiency. Choose " +
+                    Classes.printStuff("You already have proficiency. Choose " +
                             "another");
-                    Character.printToUser(warlockSkills.toString());
+                    Classes.printStuff(warlockSkills.toString());
                 } else {
-                    Character.printToUser("That is not an option. Choose another");
-                    Character.printToUser(warlockSkills.toString());
+                    Classes.printStuff("That is not an option. Choose another");
+                    Classes.printStuff(warlockSkills.toString());
                 }
-                userProf = sc.nextLine();
+                userProf = Classes.getLine();
             }
             profs.add(userProf);
         }

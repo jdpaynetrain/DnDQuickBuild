@@ -1,5 +1,6 @@
 package QuickBuild.Feats;
 import QuickBuild.Character;
+import QuickBuild.QuickBuilder;
 
 import java.util.*;
 
@@ -162,5 +163,17 @@ public interface IFeats {
             default:
                 return true;
         }
+    }
+
+    static String getLine(){
+        return QuickBuilder.getUserLine();
+    }
+
+    static Integer getNumber(){
+        return QuickBuilder.getUserInt();
+    }
+
+    static void printStuff(String message){
+        QuickBuilder.printToUser(message);
     }
 }

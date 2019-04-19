@@ -19,22 +19,20 @@ public class Bard implements IBard {
 
     public void classProfs(Set<String> profs){
         profs.addAll(bardProfs);
-        Scanner sc = new Scanner(System.in);
-
         for(int i = 0; i < 3; i++) {
-            Character.printToUser("Choose a skill to have proficiency in:");
-            Character.printToUser(allSkills.toString());
-            String userProf = sc.nextLine();
+            Classes.printStuff("Choose a skill to have proficiency in:");
+            Classes.printStuff(allSkills.toString());
+            String userProf = Classes.getLine();
             while (!allSkills.contains(userProf) || profs.contains(userProf)) {
                 if (profs.contains(userProf)) {
-                    Character.printToUser("You already have proficiency. Choose " +
+                    Classes.printStuff("You already have proficiency. Choose " +
                             "another");
-                    Character.printToUser(allSkills.toString());
+                    Classes.printStuff(allSkills.toString());
                 } else {
-                    Character.printToUser("That is not an option. Choose another");
-                    Character.printToUser(allSkills.toString());
+                    Classes.printStuff("That is not an option. Choose another");
+                    Classes.printStuff(allSkills.toString());
                 }
-                userProf = sc.nextLine();
+                userProf = Classes.getLine();
             }
             profs.add(userProf);
         }

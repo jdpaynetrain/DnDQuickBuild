@@ -19,21 +19,20 @@ public class Rogue implements IRogue {
 
     public void classProfs(Set<String> profs) {
         profs.addAll(rogueProfs);
-        Scanner sc = new Scanner(System.in);
         for(int i = 0; i < 4; i++) {
-            Character.printToUser("Choose a skill to have proficiency in:");
-            Character.printToUser(rogueSkills.toString());
-            String userProf = sc.nextLine();
+            Classes.printStuff("Choose a skill to have proficiency in:");
+            Classes.printStuff(rogueSkills.toString());
+            String userProf = Classes.getLine();
             while (!rogueSkills.contains(userProf) || profs.contains(userProf)) {
                 if (profs.contains(userProf)) {
-                    Character.printToUser("You already have proficiency. Choose " +
+                    Classes.printStuff("You already have proficiency. Choose " +
                             "another");
-                    Character.printToUser(rogueSkills.toString());
+                    Classes.printStuff(rogueSkills.toString());
                 } else {
-                    Character.printToUser("That is not an option. Choose another");
-                    Character.printToUser(rogueSkills.toString());
+                    Classes.printStuff("That is not an option. Choose another");
+                    Classes.printStuff(rogueSkills.toString());
                 }
-                userProf = sc.nextLine();
+                userProf = Classes.getLine();
             }
             profs.add(userProf);
         }

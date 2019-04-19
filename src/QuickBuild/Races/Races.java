@@ -1,4 +1,6 @@
 package QuickBuild.Races;
+import QuickBuild.QuickBuilder;
+
 import java.util.*;
 
 public interface Races {
@@ -20,4 +22,16 @@ public interface Races {
     void applyBuffs(Map<String, Integer> stats);
     Set<String> racialLanguages();
     Set<String> racialProfs();
+
+    static String getLine(){
+        return QuickBuilder.getUserLine();
+    }
+
+    static Integer getNumber(){
+        return QuickBuilder.getUserInt();
+    }
+
+    static void printStuff(String message){
+        QuickBuilder.printToUser(message);
+    }
 }

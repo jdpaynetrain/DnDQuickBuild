@@ -19,21 +19,20 @@ public class Monk implements IMonk {
 
     public void classProfs(Set<String> profs){
         profs.addAll(monkProfs);
-        Scanner sc = new Scanner(System.in);
         for(int i = 0; i < 2; i++) {
-            Character.printToUser("Choose a skill to have proficiency in:");
-            Character.printToUser(monkSkills.toString());
-            String userProf = sc.nextLine();
+            Classes.printStuff("Choose a skill to have proficiency in:");
+            Classes.printStuff(monkSkills.toString());
+            String userProf = Classes.getLine();
             while (!monkSkills.contains(userProf) || profs.contains(userProf)) {
                 if (profs.contains(userProf)) {
-                    Character.printToUser("You already have proficiency. Choose " +
+                    Classes.printStuff("You already have proficiency. Choose " +
                             "another");
-                    Character.printToUser(monkSkills.toString());
+                    Classes.printStuff(monkSkills.toString());
                 } else {
-                    Character.printToUser("That is not an option. Choose another");
-                    Character.printToUser(monkSkills.toString());
+                    Classes.printStuff("That is not an option. Choose another");
+                    Classes.printStuff(monkSkills.toString());
                 }
-                userProf = sc.nextLine();
+                userProf = Classes.getLine();
             }
             profs.add(userProf);
         }

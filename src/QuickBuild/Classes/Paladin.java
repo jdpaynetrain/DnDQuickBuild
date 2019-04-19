@@ -19,21 +19,20 @@ public class Paladin implements IPaladin {
 
     public void classProfs(Set<String> profs) {
         profs.addAll(paladinProfs);
-        Scanner sc = new Scanner(System.in);
         for(int i = 0; i < 2; i++) {
-            Character.printToUser("Choose a skill to have proficiency in:");
-            Character.printToUser(paladinSkills.toString());
-            String userProf = sc.nextLine();
+            Classes.printStuff("Choose a skill to have proficiency in:");
+            Classes.printStuff(paladinSkills.toString());
+            String userProf = Classes.getLine();
             while (!paladinSkills.contains(userProf) || profs.contains(userProf)) {
                 if (profs.contains(userProf)) {
-                    Character.printToUser("You already have proficiency. Choose " +
+                    Classes.printStuff("You already have proficiency. Choose " +
                             "another");
-                    Character.printToUser(paladinSkills.toString());
+                    Classes.printStuff(paladinSkills.toString());
                 } else {
-                    Character.printToUser("That is not an option. Choose another");
-                    Character.printToUser(paladinSkills.toString());
+                    Classes.printStuff("That is not an option. Choose another");
+                    Classes.printStuff(paladinSkills.toString());
                 }
-                userProf = sc.nextLine();
+                userProf = Classes.getLine();
             }
             profs.add(userProf);
         }
