@@ -3,7 +3,6 @@ package QuickBuild;
 import QuickBuild.Classes.*;
 import QuickBuild.Races.*;
 import QuickBuild.Feats.*;
-import com.sun.source.tree.IfTree;
 
 import java.util.*;
 
