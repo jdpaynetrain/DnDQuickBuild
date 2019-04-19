@@ -24,7 +24,11 @@ public class Resilient implements IFeats {
         person.updateStat(userScore, 1);
     }
 
-    public Boolean metPreReqs(Character person){
-        return true;
+    public String featDescription(){
+        return "Choose one ability score. You gain the following benefits:\n" +
+                "- Increase the chosen ability score by 1, to a maximum " +
+                "of 20.\n" +
+                "- You gain proficiency in saving throws using the " +
+                "chosen ability.";
     }
 }

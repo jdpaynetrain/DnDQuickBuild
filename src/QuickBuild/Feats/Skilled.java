@@ -29,7 +29,8 @@ public class Skilled implements IFeats {
         }
     }
 
-    public Boolean metPreReqs(Character person){
-        return true;
+    public String featDescription(){
+        return "You gain proficiency in any combination of three skills or " +
+                "tools of your choice.";
     }
 }

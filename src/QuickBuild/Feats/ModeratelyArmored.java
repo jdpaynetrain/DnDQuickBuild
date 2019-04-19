@@ -6,7 +6,6 @@ public class ModeratelyArmored implements IFeats {
     public void updateStats(Character person){
         if(person.checkStat("STR") != 20 || person.checkStat("DEX") != 20){
             Scanner sc = new Scanner(System.in);
-            Character.printToUser("You have chosen the athlete feat.");
             Character.printToUser("Choose STR or DEX to increase");
             person.printScores();
             String temp = sc.nextLine();
@@ -36,6 +35,14 @@ public class ModeratelyArmored implements IFeats {
     }
 
     static public Boolean metPreReqs(Character person){
-        return true;
+        return person.hasProf("All Armor") || person.hasProf("Light Armor");
+    }
+
+    public String featDescription(){
+        return "You have trained to master the use of medium armor " +
+                "and shields, gaining the following benefits:\n" +
+                "- Increase your Strength or Dexterity score by 1, to a " +
+                "maximum of 20.\n" +
+                "- You gain proficiency with medium armor and shields.";
     }
 }

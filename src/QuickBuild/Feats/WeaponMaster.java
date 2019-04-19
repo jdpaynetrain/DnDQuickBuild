@@ -40,7 +40,11 @@ public class WeaponMaster implements IFeats {
         }
     }
 
-    public Boolean metPreReqs(Character person){
-        return true;
+    public String featDescription(){
+        return "You have practiced extensively with a variety of " +
+                "weapons, gaining the following benefits:\n" +
+                "- Increase your Strength or Dexterity score by 1, to a " +
+                "maximum of 20.\n" +
+                "- You gain proficiency with four weapons of your choice.";
     }
 }
