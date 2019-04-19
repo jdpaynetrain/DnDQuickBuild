@@ -4,6 +4,9 @@ import QuickBuild.Character;
 import java.util.*;
 
 public interface IFeats {
+    // Some feats require the player to be able to cast a spell and since
+    // spell lists are outside the scope of this program, I just see if
+    // they are a spellcasting class
     Set<String> spellCasters = new HashSet<>
             (Arrays.asList("Bard", "Cleric", "Druid", "Paladin", "Ranger",
                     "Sorcerer", "Warlock", "Wizard"));

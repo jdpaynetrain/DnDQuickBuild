@@ -38,6 +38,33 @@ public class Character {
         baseStats = roller.rollStats();
     }
 
+    public void rollCharacter(String type, String race, Integer level){
+        this.type = type;
+        this.race = race;
+        this.level = 1;
+        this.applyClass(type);
+        this.applyRace(race);
+        this.calcMods();
+        this.knownLanguages = racial.racialLanguages();
+        this.proficiencies = racial.racialProfs();
+        archetype.classProfs(proficiencies);
+        health = archetype.baseHealth() + scoreMods.get("CON");
+        /*
+         * Levels 4, 8, 12, 16, and 19 all have the choice of increasing two
+         * ability scores or choosing a feat. At every level they gain health
+         */
+        if(level > 1){
+            for(int i = 2; i <= level; i++) {
+                if(i == 4 || i == 8 || i == 12 || i == 16 || i == 19) {
+                    this.specialLevel();
+                    this.calcMods();
+                }
+                this.level = i;
+                this.addHealth();
+            }
+        }
+    }
+
     private void applyClass(String type){
         if(type.equals("Barbarian"))
             archetype = new Barbarian();
@@ -97,33 +124,6 @@ public class Character {
             racial = new Tiefling();
 
         racial.applyBuffs(stats);
-    }
-
-    public void rollCharacter(String type, String race, Integer level){
-        this.type = type;
-        this.race = race;
-        this.level = 1;
-        this.applyClass(type);
-        this.applyRace(race);
-        this.calcMods();
-        this.knownLanguages = racial.racialLanguages();
-        this.proficiencies = racial.racialProfs();
-        archetype.classProfs(proficiencies);
-        health = archetype.baseHealth() + scoreMods.get("CON");
-        /*
-         * Levels 4, 8, 12, 16, and 19 all have the choice of increasing two
-         * ability scores or choosing a feat. At every level they gain health
-         */
-        if(level > 1){
-            for(int i = 2; i <= level; i++) {
-                if(i == 4 || i == 8 || i == 12 || i == 16 || i == 19) {
-                    this.specialLevel();
-                    this.calcMods();
-                }
-                this.level = i;
-                this.addHealth();
-            }
-        }
     }
 
     // Every class has their own hit die and this re-rolls 1s
@@ -203,8 +203,6 @@ public class Character {
         Character.printToUser("Choose a feat");
         Character.printToUser(allowedFeats.toString());
         String userFeat = sc.nextLine();
-        // We want to ensure the user doesn't have the feat, the choice is
-        // allowed and they meet the prereqs for the feats
         while(!allowedFeats.contains(userFeat)){
             Character.printToUser("That is not an option. Chose another");
             Character.printToUser(allowedFeats.toString());
