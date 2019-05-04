@@ -8,8 +8,8 @@ import java.util.*;
 
 public class Character {
     private List<Integer> baseStats;
-    private Classes archetype;
-    private Races racial;
+    private Classes mClass;
+    private Races mRace;
     private Map<String, Integer> stats;
     private Map<String, Integer> scoreMods;
     private String type;
@@ -28,6 +28,7 @@ public class Character {
 
     public Character(){
         feats = new HashSet<>();
+        scoreMods = new LinkedHashMap<>();
         initBonus = 0;
         healthBonus = 0;
 
@@ -43,10 +44,10 @@ public class Character {
         this.applyClass(type);
         this.applyRace(race);
         this.calcMods();
-        this.knownLanguages = racial.racialLanguages();
-        this.proficiencies = racial.racialProfs();
-        archetype.classProfs(proficiencies);
-        health = archetype.baseHealth() + scoreMods.get("CON");
+        this.knownLanguages = mRace.racialLanguages();
+        this.proficiencies = mRace.racialProfs();
+        mClass.classProfs(proficiencies);
+        health = mClass.baseHealth() + scoreMods.get("CON");
         /*
          * Levels 4, 8, 12, 16, and 19 all have the choice of increasing two
          * ability scores or choosing a feat. At every level they gain health
@@ -62,77 +63,83 @@ public class Character {
             }
         }
     }
+    private void setClass(String type){
+        if(type.equals("Barbarian"))
+            mClass = new Barbarian();
+        else if(type.equals("Bard"))
+            mClass = new Bard();
+        else if(type.equals("Cleric"))
+            mClass = new Cleric();
+        else if(type.equals("Druid"))
+            mClass = new Druid();
+        else if(type.equals("Fighter"))
+            mClass = new Fighter();
+        else if(type.equals("Monk"))
+            mClass = new Monk();
+        else if(type.equals("Paladin"))
+            mClass = new Paladin();
+        else if(type.equals("Ranger"))
+            mClass = new Ranger();
+        else if(type.equals("Rogue"))
+            mClass = new Rogue();
+        else if(type.equals("Sorcerer"))
+            mClass = new Sorcerer();
+        else if(type.equals("Warlock"))
+            mClass = new Warlock();
+        else if(type.equals("Wizard"))
+            mClass = new Wizard();
+    }
 
     private void applyClass(String type){
-        if(type.equals("Barbarian"))
-            archetype = new Barbarian();
-        else if(type.equals("Bard"))
-            archetype = new Bard();
-        else if(type.equals("Cleric"))
-            archetype = new Cleric();
-        else if(type.equals("Druid"))
-            archetype = new Druid();
-        else if(type.equals("Fighter"))
-            archetype = new Fighter();
-        else if(type.equals("Monk"))
-            archetype = new Monk();
-        else if(type.equals("Paladin"))
-            archetype = new Paladin();
-        else if(type.equals("Ranger"))
-            archetype = new Ranger();
-        else if(type.equals("Rogue"))
-            archetype = new Rogue();
-        else if(type.equals("Sorcerer"))
-            archetype = new Sorcerer();
-        else if(type.equals("Warlock"))
-            archetype = new Warlock();
-        else if(type.equals("Wizard"))
-            archetype = new Wizard();
-        stats = archetype.applyModifiers(baseStats);
+        this.setClass(type);
+        stats = mClass.applyModifiers(baseStats);
+    }
+
+    private void setRace(String race){
+        if(race.equals("Hill Dwarf"))
+            mRace = new DwarfHill();
+        else if(race.equals("Mountain Dwarf"))
+            mRace = new DwarfMountain();
+        else if(race.equals("High Elf"))
+            mRace = new ElfHigh();
+        else if(race.equals("Wood Elf"))
+            mRace = new ElfWood();
+        else if(race.equals("Dark Elf"))
+            mRace = new ElfDark();
+        else if(race.equals("Lightfoot Halfling"))
+            mRace = new HalflingLightfoot();
+        else if(race.equals("Stout Halfling"))
+            mRace = new HalflingStout();
+        else if(race.equals("Human"))
+            mRace = new Human();
+        else if(race.equals("Dragonborn"))
+            mRace = new Dragonborn();
+        else if(race.equals("Forest Gnome"))
+            mRace = new GnomeForest();
+        else if(race.equals("Rock Gnome"))
+            mRace = new GnomeRock();
+        else if(race.equals("Half Elf"))
+            mRace = new HalfElf();
+        else if(race.equals("Half Orc"))
+            mRace = new HalfOrc();
+        else if(race.equals("Tiefling"))
+            mRace = new Tiefling();
     }
 
     private void applyRace(String race){
-        if(race.equals("Hill Dwarf"))
-            racial = new DwarfHill();
-        else if(race.equals("Mountain Dwarf"))
-            racial = new DwarfMountain();
-        else if(race.equals("High Elf"))
-            racial = new ElfHigh();
-        else if(race.equals("Wood Elf"))
-            racial = new ElfWood();
-        else if(race.equals("Dark Elf"))
-            racial = new ElfDark();
-        else if(race.equals("Lightfoot Halfling"))
-            racial = new HalflingLightfoot();
-        else if(race.equals("Stout Halfling"))
-            racial = new HalflingStout();
-        else if(race.equals("Human"))
-            racial = new Human();
-        else if(race.equals("Dragonborn"))
-            racial = new Dragonborn();
-        else if(race.equals("Forest Gnome"))
-            racial = new GnomeForest();
-        else if(race.equals("Rock Gnome"))
-            racial = new GnomeRock();
-        else if(race.equals("Half Elf"))
-            racial = new HalfElf();
-        else if(race.equals("Half Orc"))
-            racial = new HalfOrc();
-        else if(race.equals("Tiefling"))
-            racial = new Tiefling();
-
-        racial.applyBuffs(stats);
+        this.setRace(race);
+        mRace.applyBuffs(stats);
     }
 
     // Every class has their own hit die and this re-rolls 1s
     private void addHealth(){
-        int temp = archetype.rollHitDie();
+        int temp = mClass.rollHitDie();
         if(feats.contains("Durable"))
-            while(temp > Math.max(scoreMods.get("CON") * 2, 2))
-                temp = archetype.rollHitDie();
+            while(temp < Math.max(scoreMods.get("CON") * 2, 2))
+                temp = mClass.rollHitDie();
         else
             while(temp == 1)
-                temp = archetype.rollHitDie();
+                temp = mClass.rollHitDie();
         health = health + temp + scoreMods.get("CON") + healthBonus;
     }
 
@@ -142,7 +149,6 @@ public class Character {
 
     // Mods are based off the (ability score - 10) / 2
     private void calcMods(){
-        scoreMods = new LinkedHashMap<>();
         for(Map.Entry<String, Integer> entry: stats.entrySet()){
             scoreMods.put(entry.getKey(),
                             Math.floorDiv(entry.getValue() - 10, 2));
