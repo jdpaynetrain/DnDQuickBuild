@@ -1,8 +1,6 @@
 package QuickBuild.Feats;
 import QuickBuild.Character;
 
-import java.util.Scanner;
-
 public class WeaponMaster implements IFeats {
     public void updateStats(Character person){
         if(person.checkStat("STR") == 20 && person.checkStat("DEX") == 20){

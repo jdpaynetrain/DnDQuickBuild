@@ -1,7 +1,6 @@
 package QuickBuild.Races;
 
 import java.util.*;
-import QuickBuild.Character;
 
 public class DwarfMountain implements Races {
 

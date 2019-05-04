@@ -1,6 +1,5 @@
 package QuickBuild.Feats;
 import QuickBuild.Character;
-import java.util.Scanner;
 
 public class Observant implements IFeats {
 

@@ -1,6 +1,5 @@
 package QuickBuild.Races;
 import java.util.*;
-import QuickBuild.Character;
 
 public class Human implements Races {
     public void applyBuffs(Map<String, Integer> stats){

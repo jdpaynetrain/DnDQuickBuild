@@ -1,7 +1,6 @@
 package QuickBuild.Races;
 
 import java.util.*;
-import QuickBuild.Character;
 
 public class DwarfHill implements Races {
     public Set<String> racialLanguages(){

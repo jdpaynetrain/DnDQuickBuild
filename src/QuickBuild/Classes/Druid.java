@@ -1,7 +1,6 @@
 package QuickBuild.Classes;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
-import QuickBuild.Character;
 
 public class Druid implements IDruid {
     private Map<String, Integer> scores = new LinkedHashMap<>();

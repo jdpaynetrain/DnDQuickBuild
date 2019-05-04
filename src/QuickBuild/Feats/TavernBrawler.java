@@ -1,6 +1,5 @@
 package QuickBuild.Feats;
 import QuickBuild.Character;
-import java.util.Scanner;
 
 public class TavernBrawler implements IFeats {
     public void updateStats(Character person){
