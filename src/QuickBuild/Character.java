@@ -58,6 +58,11 @@ public class Character {
                     this.specialLevel();
                     this.calcMods();
                 }
+                // Rogues get an additional bonus at level 10
+                else if(i == 10 && type.equals("Rogue")){
+                    this.specialLevel();
+                    this.calcMods();
+                }
                 this.level = i;
                 this.addHealth();
             }
@@ -134,11 +139,7 @@ public class Character {
     // Every class has their own hit die and this re-rolls 1s
     private void addHealth(){
         int temp = mClass.rollHitDie();
-        if(feats.contains("Durable"))
-            while(temp < Math.max(scoreMods.get("CON") * 2, 2))
-                temp = mClass.rollHitDie();
-        else
-            while(temp == 1)
+        while(temp == 1)
                 temp = mClass.rollHitDie();
         health = health + temp + scoreMods.get("CON") + healthBonus;
     }
@@ -147,7 +148,7 @@ public class Character {
         this.health += health;
     }
 
-    // Mods are based off the (ability score - 10) / 2
+    // Mods are based off (ability score - 10) / 2
     private void calcMods(){
         for(Map.Entry<String, Integer> entry: stats.entrySet()){
             scoreMods.put(entry.getKey(),
