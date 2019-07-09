@@ -13,7 +13,7 @@ public class Character {
     private Map<String, Integer> stats;
     private Map<String, Integer> scoreMods;
     private String type;
-    private String race;
+    private String nRace;
     private Set<String> proficiencies;
     private Set<String> knownLanguages;
     private Map<Boolean, Integer> darkvision;
@@ -37,12 +37,12 @@ public class Character {
         baseStats = roller.rollStats();
     }
 
-    public void rollCharacter(String type, String race, Integer level){
+    public void rollCharacter(String type, String nRace, Integer level){
         this.type = type;
-        this.race = race;
+        this.nRace = nRace;
         this.level = 1;
         this.applyClass(type);
-        this.applyRace(race);
+        this.applyRace(nRace);
         this.calcMods();
         this.knownLanguages = mRace.racialLanguages();
         this.proficiencies = mRace.racialProfs();
@@ -95,39 +95,39 @@ public class Character {
         stats = mClass.applyModifiers(baseStats);
     }
 
-    private void setRace(String race){
-        if(race.equals("Hill Dwarf"))
+    private void setRace(String nRace){
+        if(nRace.equals("Hill Dwarf"))
             mRace = new DwarfHill();
-        else if(race.equals("Mountain Dwarf"))
+        else if(nRace.equals("Mountain Dwarf"))
             mRace = new DwarfMountain();
-        else if(race.equals("High Elf"))
+        else if(nRace.equals("High Elf"))
             mRace = new ElfHigh();
-        else if(race.equals("Wood Elf"))
+        else if(nRace.equals("Wood Elf"))
             mRace = new ElfWood();
-        else if(race.equals("Dark Elf"))
+        else if(nRace.equals("Dark Elf"))
             mRace = new ElfDark();
-        else if(race.equals("Lightfoot Halfling"))
+        else if(nRace.equals("Lightfoot Halfling"))
             mRace = new HalflingLightfoot();
-        else if(race.equals("Stout Halfling"))
+        else if(nRace.equals("Stout Halfling"))
             mRace = new HalflingStout();
-        else if(race.equals("Human"))
+        else if(nRace.equals("Human"))
             mRace = new Human();
-        else if(race.equals("Dragonborn"))
+        else if(nRace.equals("Dragonborn"))
             mRace = new Dragonborn();
-        else if(race.equals("Forest Gnome"))
+        else if(nRace.equals("Forest Gnome"))
             mRace = new GnomeForest();
-        else if(race.equals("Rock Gnome"))
+        else if(nRace.equals("Rock Gnome"))
             mRace = new GnomeRock();
-        else if(race.equals("Half Elf"))
+        else if(nRace.equals("Half Elf"))
             mRace = new HalfElf();
-        else if(race.equals("Half Orc"))
+        else if(nRace.equals("Half Orc"))
             mRace = new HalfOrc();
-        else if(race.equals("Tiefling"))
+        else if(nRace.equals("Tiefling"))
             mRace = new Tiefling();
     }
 
-    private void applyRace(String race){
-        this.setRace(race);
+    private void applyRace(String nRace){
+        this.setRace(nRace);
         mRace.applyBuffs(stats);
     }
 
@@ -271,7 +271,7 @@ public class Character {
     }
 
     public String getRace(){
-        return race;
+        return nRace;
     }
 
     public String getType(){

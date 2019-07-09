@@ -2,7 +2,7 @@ package QuickBuild.Classes;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Cleric implements ICleric {
+public class Cleric implements Classes {
 
     private Map<String, Integer> scores = new LinkedHashMap<>();
 

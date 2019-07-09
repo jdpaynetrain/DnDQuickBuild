@@ -2,7 +2,7 @@ package QuickBuild.Classes;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Barbarian implements IBarbarian {
+public class Barbarian implements Classes {
     
     private Map<String, Integer> scores = new LinkedHashMap<>();
 

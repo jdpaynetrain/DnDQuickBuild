@@ -2,7 +2,7 @@ package QuickBuild.Classes;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Fighter implements IFighter {
+public class Fighter implements Classes {
 
     private Map<String, Integer> scores = new LinkedHashMap<>();
 
