@@ -1,10 +1,6 @@
 package QuickBuild.Feats;
-import QuickBuild.Character;
 
 public class MartialAdept implements IFeats {
-    public void updateStats(Character person){
-
-    }
 
     public String featDescription(){
         return "You have martial training that allows you to " +

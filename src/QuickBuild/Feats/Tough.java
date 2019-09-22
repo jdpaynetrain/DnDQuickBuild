@@ -1,5 +1,5 @@
 package QuickBuild.Feats;
-import QuickBuild.Character;
+import QuickBuild.Player.Character;
 
 public class Tough implements IFeats {
 

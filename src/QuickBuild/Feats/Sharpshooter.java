@@ -1,10 +1,6 @@
 package QuickBuild.Feats;
-import QuickBuild.Character;
 
 public class Sharpshooter implements IFeats {
-    public void updateStats(Character person){
-
-    }
 
     public String featDescription(){
         return "You have mastered ranged weapons and can make " +

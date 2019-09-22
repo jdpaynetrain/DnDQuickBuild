@@ -1,13 +1,9 @@
 package QuickBuild.Feats;
-import QuickBuild.Character;
+import QuickBuild.Player.Character;
 
 public class Grappler implements IFeats {
     static public Boolean metPreReqs(Character person){
-        return person.checkStat("STR") >= 13;
-    }
-
-    public void updateStats(Character person){
-
+        return person.getStat("STR") >= 13;
     }
 
     public String featDescription(){

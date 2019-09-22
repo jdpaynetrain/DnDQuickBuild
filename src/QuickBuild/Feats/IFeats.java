@@ -1,6 +1,6 @@
 package QuickBuild.Feats;
-import QuickBuild.Character;
-import QuickBuild.QuickBuilder;
+import QuickBuild.Player.Character;
+import QuickBuild.Player.CharacterController;
 
 import java.util.*;
 
@@ -26,7 +26,9 @@ public interface IFeats {
                     "Skulker", "Spell Sniper", "Tavern Brawler", "Tough",
                     "War Caster", "Weapon Master"));
 
-    void updateStats(Character person);
+    default void updateStats(Character person, CharacterController control){
+
+    }
 
     String featDescription();
 
@@ -163,17 +165,5 @@ public interface IFeats {
             default:
                 return true;
         }
-    }
-
-    static String getLine(){
-        return QuickBuilder.getUserLine();
-    }
-
-    static Integer getNumber(){
-        return QuickBuilder.getUserInt();
-    }
-
-    static void printStuff(String message){
-        QuickBuilder.printToUser(message);
     }
 }

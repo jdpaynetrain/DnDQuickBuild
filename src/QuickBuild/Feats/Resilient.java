@@ -1,25 +1,17 @@
 package QuickBuild.Feats;
-import QuickBuild.Character;
-import java.util.Set;
-import java.util.HashSet;
+import QuickBuild.Player.Character;
+import QuickBuild.Player.CharacterController;
+import java.util.*;
 
 public class Resilient implements IFeats {
 
-    public void updateStats(Character person){
-        Set<String> abilityOptions = new HashSet<>();
+    public void updateStats(Character person, CharacterController control){
+        Set<String> statOptions = new HashSet<>();
         for(String curr: Character.allScores){
-            if(person.checkStat(curr) < 20)
-                abilityOptions.add(curr);
+            if(person.getStat(curr) < 20)
+                statOptions.add(curr);
         }
-        IFeats.printStuff("Choose an ability to increase:");
-        person.printScores();
-        String userScore = IFeats.getLine();
-        while(!abilityOptions.contains(userScore)){
-            IFeats.printStuff("That isn't a choice");
-            person.printScores();
-            userScore = IFeats.getLine();
-        }
-        person.updateStat(userScore, 1);
+        control.applyFeatStats(person, statOptions);
     }
 
     public String featDescription(){

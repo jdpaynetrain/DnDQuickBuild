@@ -1,4 +1,6 @@
 package QuickBuild.Classes;
+import QuickBuild.Player.CharacterController;
+
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -16,25 +18,15 @@ public class Sorcerer implements Classes {
         return scores;
     }
 
-    public void classProfs(Set<String> profs){
+    public void classProfs(Set<String> profs, CharacterController control){
         profs.addAll(sorcererProfs);
         Set<String> profOptions = new HashSet<>();
         for(String curr: sorcererSkills){
             if(!profs.contains(curr))
                 profOptions.add(curr);
         }
-        for(int i = 0; i < 2; i++) {
-            Classes.printStuff("Choose a skill to have proficiency in:");
-            Classes.printStuff(profOptions.toString());
-            String userProf = Classes.getLine();
-            while (!profOptions.contains(userProf)) {
-                Classes.printStuff("That is not an option. Choose another");
-                Classes.printStuff(profOptions.toString());
-                userProf = Classes.getLine();
-            }
-            profOptions.remove(userProf);
-            profs.add(userProf);
-        }
+        control.addClassProfs(profs, profOptions);
+        control.addClassProfs(profs, profOptions);
     }
 
     public Integer rollHitDie(){

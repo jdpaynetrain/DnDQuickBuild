@@ -1,13 +1,10 @@
 package QuickBuild.Feats;
-import QuickBuild.Character;
+import QuickBuild.Player.Character;
 
 public class Skulker implements IFeats {
-    public void updateStats(Character person){
-
-    }
 
     static public Boolean metPreReqs(Character person){
-        return person.checkStat("DEX") >= 13;
+        return person.getStat("DEX") >= 13;
     }
 
     public String featDescription(){

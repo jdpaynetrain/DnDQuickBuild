@@ -1,8 +1,9 @@
 package QuickBuild.Feats;
-import QuickBuild.Character;
+import QuickBuild.Player.Character;
+import QuickBuild.Player.CharacterController;
 
 public class HeavilyArmored implements IFeats {
-    public void updateStats(Character person){
+    public void updateStats(Character person, CharacterController control){
         person.addProf("Heavy Armor");
         person.updateStat("STR", 1);
     }

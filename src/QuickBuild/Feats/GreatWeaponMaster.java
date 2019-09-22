@@ -1,10 +1,6 @@
 package QuickBuild.Feats;
-import QuickBuild.Character;
 
 public class GreatWeaponMaster implements IFeats {
-    public void updateStats(Character person){
-
-    }
 
     public String featDescription(){
         return "You've learned to put the weight of a weapon to your " +

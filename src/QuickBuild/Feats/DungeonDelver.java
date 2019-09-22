@@ -1,10 +1,6 @@
 package QuickBuild.Feats;
-import QuickBuild.Character;
 
 public class DungeonDelver implements IFeats {
-    public void updateStats(Character person){
-
-    }
 
     public String featDescription(){
         return "Alert to the hidden traps and secret doors found in many " +

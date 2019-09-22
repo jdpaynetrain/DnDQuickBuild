@@ -1,5 +1,6 @@
 package QuickBuild.Races;
-import QuickBuild.QuickBuilder;
+
+import QuickBuild.Player.CharacterController;
 
 import java.util.*;
 
@@ -19,19 +20,8 @@ public interface Races {
     Set<String> artisansTools = new HashSet<>
             (Arrays.asList("Smith's Tools", "Brewer's Supplies",
                            "Mason's Tools"));
-    void applyBuffs(Map<String, Integer> stats);
-    Set<String> racialLanguages();
-    Set<String> racialProfs();
+    void applyBuffs(Map<String, Integer> stats, CharacterController control);
+    Set<String> racialLanguages(CharacterController control);
+    Set<String> racialProfs(CharacterController control);
 
-    static String getLine(){
-        return QuickBuilder.getUserLine();
-    }
-
-    static Integer getNumber(){
-        return QuickBuilder.getUserInt();
-    }
-
-    static void printStuff(String message){
-        QuickBuilder.printToUser(message);
-    }
 }

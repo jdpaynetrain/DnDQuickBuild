@@ -1,8 +1,6 @@
 package QuickBuild.Feats;
-import QuickBuild.Character;
 
 public class Charger implements IFeats {
-    public void updateStats(Character person){ }
 
     public String featDescription(){
         return "When you use your action to Dash, you can use a bonus action " +

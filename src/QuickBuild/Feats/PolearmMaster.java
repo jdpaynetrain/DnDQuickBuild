@@ -1,10 +1,6 @@
 package QuickBuild.Feats;
-import QuickBuild.Character;
 
 public class PolearmMaster implements IFeats {
-    public void updateStats(Character person){
-
-    }
 
     public String featDescription() {
         return "You can keep your enemies at bay with reach weapons. " +

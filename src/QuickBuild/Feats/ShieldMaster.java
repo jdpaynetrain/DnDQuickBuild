@@ -1,10 +1,6 @@
 package QuickBuild.Feats;
-import QuickBuild.Character;
 
 public class ShieldMaster implements IFeats {
-    public void updateStats(Character person){
-
-    }
 
     public String featDescription(){
         return "You use shields not just for protection but also for " +

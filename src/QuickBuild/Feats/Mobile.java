@@ -1,10 +1,6 @@
 package QuickBuild.Feats;
-import QuickBuild.Character;
 
 public class Mobile implements IFeats {
-    public void updateStats(Character person){
-
-    }
 
     public String featDescription(){
         return "You are exceptionally speedy and agile. You gain the " +

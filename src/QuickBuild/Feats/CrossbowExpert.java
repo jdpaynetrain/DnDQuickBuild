@@ -1,10 +1,6 @@
 package QuickBuild.Feats;
-import QuickBuild.Character;
 
 public class CrossbowExpert implements IFeats {
-    public void updateStats(Character person){
-
-    }
 
     public String featDescription(){
         return "Thanks to extensive practice you gain the following " +

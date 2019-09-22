@@ -1,10 +1,6 @@
 package QuickBuild.Feats;
-import QuickBuild.Character;
 
 public class Lucky implements IFeats {
-    public void updateStats(Character person){
-
-    }
 
     public String featDescription(){
         return "You have inexplicable luck that seems to kick in at just " +

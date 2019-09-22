@@ -1,12 +1,14 @@
 package QuickBuild.Races;
+import QuickBuild.Player.CharacterController;
+
 import java.util.*;
 
 public class Human implements Races {
-    public void applyBuffs(Map<String, Integer> stats){
+    public void applyBuffs(Map<String, Integer> stats, CharacterController control){
         for(Map.Entry<String, Integer> entry: stats.entrySet())
             stats.put(entry.getKey(), entry.getValue() + 1);
     }
-    public Set<String> racialLanguages(){
+    public Set<String> racialLanguages(CharacterController control){
         Set<String> lang = new HashSet<>();
         lang.add("Common");
         Set<String> langOptions = new HashSet<>();
@@ -16,21 +18,12 @@ public class Human implements Races {
                 langOptions.add(curr);
         }
 
-        Races.printStuff("Choose a language to learn:");
-        Races.printStuff(langOptions.toString());
-        String userLang = Races.getLine();
-        while(!langOptions.contains(userLang)){
-            Races.printStuff("That language is not an option. " +
-                    "Choose another");
-            Races.printStuff(langOptions.toString());
-            userLang = Races.getLine();
-        }
-        lang.add(userLang);
+        control.addRacialLanguages(lang, langOptions);
 
         return lang;
     }
 
-    public Set<String> racialProfs(){
+    public Set<String> racialProfs(CharacterController control){
         return new HashSet<>();
     }
 }

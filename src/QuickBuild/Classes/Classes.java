@@ -1,6 +1,6 @@
 package QuickBuild.Classes;
 
-import QuickBuild.QuickBuilder;
+import QuickBuild.Player.CharacterController;
 import java.util.*;
 
 public interface Classes {
@@ -101,19 +101,8 @@ public interface Classes {
                     "Quarterstaffs", "Light Crossbows"));
 
     Map<String, Integer> applyModifiers(List<Integer> baseStats);
-    void classProfs(Set<String> profs);
+    void classProfs(Set<String> profs, CharacterController control);
     Integer baseHealth();
     Integer rollHitDie();
 
-    static String getLine(){
-        return QuickBuilder.getUserLine();
-    }
-
-    static Integer getNumber(){
-        return QuickBuilder.getUserInt();
-    }
-
-    static void printStuff(String message){
-        QuickBuilder.printToUser(message);
-    }
 }

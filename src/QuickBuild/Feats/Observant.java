@@ -1,30 +1,13 @@
 package QuickBuild.Feats;
-import QuickBuild.Character;
+import QuickBuild.Player.Character;
+import QuickBuild.Player.CharacterController;
+import java.util.*;
 
 public class Observant implements IFeats {
 
-    public void updateStats(Character person){
-        if(person.checkStat("INT") == 20 && person.checkStat("WIS") == 20){
-            IFeats.printStuff("INT and WIS are both 20. No stats to boost.");
-        }
-        else if(person.checkStat("INT").equals(20)){
-            IFeats.printStuff("INT is already 20. Boosting WIS");
-            person.updateStat("INT", 1);
-        }
-        else if(person.checkStat("WIS").equals(20)){
-            IFeats.printStuff("WIS is already 20. Boosting INT");
-            person.updateStat("WIS", 1);
-        }
-        else {
-            IFeats.printStuff("Choose INT or WIS to increase");
-            person.printScores();
-            String temp = IFeats.getLine();
-            while((!temp.equals("WIS") && !temp.equals("INT"))){
-                IFeats.printStuff("Options are WIS or INT");
-                temp = IFeats.getLine();
-            }
-            person.updateStat(temp, 1);
-        }
+    public void updateStats(Character person, CharacterController control){
+        Set<String> statOptions = new HashSet<>(Arrays.asList("INT", "WIS"));
+        control.applyFeatStats(person, statOptions);
     }
 
     public String featDescription() {

@@ -1,14 +1,11 @@
 package QuickBuild.Feats;
-import QuickBuild.Character;
+import QuickBuild.Player.Character;
 
 public class ElementalAdept implements IFeats {
     static public Boolean metPreReqs(Character person){
         return spellCasters.contains(person.getType());
     }
 
-    public void updateStats(Character person){
-
-    }
 
     public String featDescription(){
         return "When you gain this feat, choose one of the following damage " +

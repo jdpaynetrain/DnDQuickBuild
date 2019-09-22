@@ -1,10 +1,6 @@
 package QuickBuild.Feats;
-import QuickBuild.Character;
 
 public class MageSlayer implements IFeats {
-    public void updateStats(Character person){
-
-    }
 
     public String featDescription(){
        return "You have practiced techniques useful in melee combat " +

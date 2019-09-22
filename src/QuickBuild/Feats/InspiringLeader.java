@@ -1,13 +1,10 @@
 package QuickBuild.Feats;
-import QuickBuild.Character;
+import QuickBuild.Player.Character;
 
 public class InspiringLeader implements IFeats {
-    public void updateStats(Character person){
-
-    }
 
     static public Boolean metPreReqs(Character person){
-        return person.checkStat("CHA") >= 13;
+        return person.getStat("CHA") >= 13;
     }
 
     public String featDescription(){

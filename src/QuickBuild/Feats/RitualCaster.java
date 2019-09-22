@@ -1,13 +1,10 @@
 package QuickBuild.Feats;
-import QuickBuild.Character;
+import QuickBuild.Player.Character;
 
 public class RitualCaster implements IFeats {
-    public void updateStats(Character person){
-
-    }
 
     static public Boolean metPreReqs(Character person){
-        return person.checkStat("WIS") >= 13 || person.checkStat("INT") >= 13;
+        return person.getStat("WIS") >= 13 || person.getStat("INT") >= 13;
     }
 
     public String featDescription(){

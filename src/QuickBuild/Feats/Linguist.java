@@ -1,29 +1,20 @@
 package QuickBuild.Feats;
-import QuickBuild.Character;
+import QuickBuild.Player.Character;
+import QuickBuild.Player.CharacterController;
 import QuickBuild.Races.Races;
-import java.util.Set;
-import java.util.HashSet;
+import java.util.*;
 
 public class Linguist implements IFeats {
-    public void updateStats(Character person){
+    public void updateStats(Character person, CharacterController control){
         person.updateStat("INT", 1);
         Set<String> langOptions = new HashSet<>();
         for(String curr: Races.allLanguages){
             if(!person.hasLang(curr))
                 langOptions.add(curr);
         }
-        for(int i = 0; i < 3; i++) {
-            IFeats.printStuff("Choose a language to learn.");
-            IFeats.printStuff(langOptions.toString());
-            String userLang = IFeats.getLine();
-            while(!langOptions.contains(userLang)){
-                IFeats.printStuff("That is not an option.");
-                IFeats.printStuff(langOptions.toString());
-                userLang = IFeats.getLine();
-            }
-            langOptions.remove(userLang);
-            person.addLang(userLang);
-        }
+        control.applyFeatLangs(person, langOptions);
+        control.applyFeatLangs(person, langOptions);
+        control.applyFeatLangs(person, langOptions);
     }
 
     public String featDescription(){
